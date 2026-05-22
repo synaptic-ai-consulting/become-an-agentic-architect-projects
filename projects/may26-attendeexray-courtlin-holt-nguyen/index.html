@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AttendeeXRAY – Agentic Architect Capstone</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+      margin: 0;
+      padding: 24px;
+      background: #020617;
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    h1, h2 {
+      color: #f9fafb;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    h2 {
+      margin-top: 1.8rem;
+      margin-bottom: 0.4rem;
+    }
+    p {
+      margin: 0.3rem 0;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 12px;
+      margin: 0.75rem 0;
+      border: 1px solid #1f2937;
+    }
+    ul { padding-left: 1.2rem; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.5rem;
+    }
+    th, td {
+      border: 1px solid #1f2937;
+      padding: 6px 8px;
+      font-size: 0.9rem;
+    }
+    th {
+      background: #020617;
+    }
+    .meta {
+      color: #9ca3af;
+      font-size: 0.9rem;
+      margin-bottom: 0.8rem;
+    }
+    .pill {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 3px 9px;
+      border: 1px solid #1f2937;
+      font-size: 0.8rem;
+      color: #9ca3af;
+      margin-right: 6px;
+    }
+    a {
+      color: #93c5fd;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>AttendeeXRAY</h1>
+      <p class="meta">
+        Built by <strong>Courtlin Holt-Nguyen</strong> –
+        Capstone for "Become an Agentic Architect / Mastering Multiagent AI Systems with CrewAI".
+      </p>
+      <p>
+        <span class="pill">May 2026</span>
+        <span class="pill">CrewAI</span>
+        <span class="pill">FastAPI</span>
+        <span class="pill">React</span>
+      </p>
+      <p>AttendeeXRAY turns messy conference inputs—attendee lists, agendas, and your goals—into ranked, source-backed meeting targets and conversation-ready XRAY cards, so GTM and founder users know who to meet, why, and what to say before they arrive.</p>
+      <p><a href="https://frontend-dev-5421.up.railway.app" target="_blank" rel="noopener noreferrer">Live demo →</a></p>
+      <img src="hero.png" alt="AttendeeXRAY landing page — conference intelligence brief" />
+    </header>
+
+    <section>
+      <h2>Problem &amp; Target Users</h2>
+      <p>Conference networking is high-stakes, but preparation is fragmented across CSVs, event apps, LinkedIn, CRM, and agenda PDFs. Users waste floor time on low-fit contacts and lose post-event follow-up context.</p>
+      <p>AttendeeXRAY serves <strong>B2B GTM and sales professionals</strong> (AEs, SDRs, field marketers, BD/partnerships) and <strong>startup founders / early GTM operators</strong> who need evidence-backed prioritization before they arrive—not generic matchmaking.</p>
+    </section>
+
+    <section>
+      <h2>Solution Overview</h2>
+      <p>Users create an event workspace, ingest conference sources (agenda PDFs, speaker lists, CVs), and define meeting goals. A Celery-backed 13-stage pipeline runs CrewAI sequential crews to research targets, score fit (0–99), generate XRAY cards with citations, and audit output quality.</p>
+      <p>The product ships a full journey UI—conference onboarding, profile extraction, speaker recommendations, opt-in attendee discovery, and a Crew Monitor for transparent multi-agent execution.</p>
+    </section>
+
+    <section>
+      <h2>Key Features</h2>
+      <ul>
+        <li><strong>Conference &amp; agenda intake</strong> — Upload agenda PDFs or paste speaker names; CrewAI extracts speakers with confidence scores and review flags.</li>
+        <li><strong>Profile extraction</strong> — CV upload or pasted LinkedIn text parsed into headline, company, and focus areas via the profile intake agent.</li>
+        <li><strong>Speaker recommendations</strong> — Ranked matches with fit %, “why meet them,” session fit, and roster handoff.</li>
+        <li><strong>Opt-in discovery</strong> — Consent-aware attendee profiles with mutual match tiers, confidence, and intro prompts.</li>
+        <li><strong>13-stage async pipeline</strong> — Research runs via Celery + Redis with persisted MatchResult, XrayCard, and Citation rows.</li>
+        <li><strong>Crew Monitor</strong> — Per-stage CrewAI prompt/response traces for debugging and observability.</li>
+        <li><strong>Citation-first quality</strong> — Guardrails on critical tasks; publish-ready outputs require provenance.</li>
+        <li><strong>Production-shaped stack</strong> — JWT auth, workspace-scoped APIs, PostgreSQL, Railway deployment.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Multi-agent AI Crew</h2>
+      <p>All agent role/goal/backstory and task text lives in YAML (<code>backend/config/agents.yaml</code>, <code>tasks.yaml</code>). Python wires sequential CrewAI crews with guardrails and tracing—no inline prompts, no silent fallbacks.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Agent</th>
+            <th>Role</th>
+            <th>Tools / Integrations</th>
+            <th>Trigger</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>attendee_ingestion_agent</td>
+            <td>Intake, normalization, per-attendee research briefs</td>
+            <td>CSV parsing, agenda extraction, dossier context</td>
+            <td>Validation, agenda upload, pipeline <code>research_target</code></td>
+          </tr>
+          <tr>
+            <td>scoring_matching_agent</td>
+            <td>Fit scoring (0–99) and ranking</td>
+            <td>OpenAI LLM, JSON guardrails</td>
+            <td><code>rank_targets</code>, <code>score_target</code></td>
+          </tr>
+          <tr>
+            <td>xray_card_generation_agent</td>
+            <td>Conversation starters &amp; reason-to-meet</td>
+            <td>OpenAI LLM, guardrails</td>
+            <td><code>compose_strategy</code></td>
+          </tr>
+          <tr>
+            <td>speaker_recommendation_agent</td>
+            <td>Multi-source speaker dossiers</td>
+            <td>Exa.ai, OpenAI, citations</td>
+            <td>Recommendations API, speaker research</td>
+          </tr>
+          <tr>
+            <td>speaker_match_strategist</td>
+            <td>“Why matched” cards &amp; Q&amp;A prompts</td>
+            <td>Dossier + user profile context</td>
+            <td><code>compose_speaker_match</code></td>
+          </tr>
+          <tr>
+            <td>profile_intake_agent</td>
+            <td>CV/PDF profile parsing</td>
+            <td>Local PDF/text extraction</td>
+            <td>Onboarding profile step</td>
+          </tr>
+          <tr>
+            <td>quality_review_agent</td>
+            <td>Payload audit, poorly-justified fits</td>
+            <td>LLM, contract validation</td>
+            <td><code>audit_targets</code></td>
+          </tr>
+          <tr>
+            <td>opt_in_consent_agent</td>
+            <td>Opt-in sharing &amp; consent</td>
+            <td>Workspace discovery APIs</td>
+            <td>Opt-in / sharing preference flows</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Technical Architecture</h2>
+      <ul>
+        <li><strong>Frontend</strong> — React 19, TypeScript, Vite, React Router; workspace-scoped journey flows</li>
+        <li><strong>Backend</strong> — FastAPI, SQLAlchemy 2, Alembic, Pydantic v2 schemas; <code>/api/v1</code> only</li>
+        <li><strong>Data / storage</strong> — PostgreSQL (production); Celery + Redis for async jobs</li>
+        <li><strong>Integrations</strong> — OpenAI (LLM), Exa.ai (speaker web research), optional OTLP/Langfuse observability</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Deployment</h2>
+      <p>Live demo on <a href="https://frontend-dev-5421.up.railway.app" target="_blank" rel="noopener noreferrer">Railway</a> (frontend + API + worker + Postgres + Redis). Local dev via <code>scripts/start-dev.sh</code> or Docker Compose. GitHub → Railway previews on PR, auto-deploy on <code>main</code>.</p>
+      <p>Key env vars (names only): <code>ATTENDEEXRAY_DATABASE_URL</code>, <code>ATTENDEEXRAY_REDIS_URL</code>, <code>ATTENDEEXRAY_JWT_SECRET</code>, <code>OPENAI_API_KEY</code>, <code>EXA_API_KEY</code>, <code>VITE_API_BASE_URL</code>.</p>
+    </section>
+
+    <section>
+      <h2>Screenshots</h2>
+      <p><strong>Conference onboarding</strong> — Agenda PDF upload with CrewAI speaker extraction (9 speakers, 100% parser confidence).</p>
+      <img src="screen-1.png" alt="Conference onboarding — agenda PDF and extracted speakers" />
+
+      <p><strong>Profile onboarding</strong> — CV extraction review with headline, company, and focus areas parsed by CrewAI.</p>
+      <img src="screen-2.png" alt="Profile onboarding — CV extraction review" />
+
+      <p><strong>Speaker recommendations</strong> — Ranked top speaker matches with fit %, why meet them, and roster actions.</p>
+      <img src="screen-3.png" alt="Speaker recommendations — top matches with fit scores" />
+
+      <p><strong>Opt-in discovery</strong> — Attendee matching pool with confidence tiers, must-meet spotlight, and AI-generated intro rationale.</p>
+      <img src="screen-4.png" alt="Opt-in discovery — attendee match pool and top match" />
+    </section>
+
+    <section>
+      <h2>My Role &amp; Learnings as Agentic Architect</h2>
+      <ul>
+        <li>Externalized all CrewAI agent and task definitions to YAML with a strict no-fallback factory—missing spec IDs fail fast instead of silently degrading.</li>
+        <li>Orchestrated five sequential crew patterns (per-target pipeline, quality review, speaker match, agenda extraction, provider summary) behind a 13-stage Celery pipeline with cancellation and trace capture.</li>
+        <li>Built guardrail registry wiring so high-risk tasks validate JSON shape and citation requirements before persisting publish-ready outputs.</li>
+        <li>Shipped Crew Monitor UI surfacing per-stage prompts and responses—making multi-agent execution debuggable for operators, not just developers.</li>
+        <li>Deployed a production-shaped stack (FastAPI + Postgres + Redis + Railway) while keeping the AAMAD modular workflow and contract tests as CI gates.</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

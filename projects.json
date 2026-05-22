@@ -1,29 +1,40 @@
 {
-    "projects": [
-      {
-        "projectTitle": "CareSync AI",
-        "authorName": "Matt Burton",
-        "authorGithub": "savant01",
-        "cohort": "Feb 2026",
-        "valueProposition": "AI-powered platform for coordinating senior care across medical, financial, and legal domains — with multi-agent intelligence that turns family conversations into structured, actionable health data.",
-        "targetMarket": "Senior living facilities and family caregivers",
-        "heroImageUrl": "projects/feb26-caresync-ai-matt-burton/hero.png",
-        "showcaseUrl": "projects/feb26-caresync-ai-matt-burton/index.html",
-        "techStack": ["Next.js", "FastAPI", "CrewAI", "PostgreSQL", "Docker", "Prisma"],
-        "tags": ["multi-agent", "healthcare", "Agentic Architect", "capstone"]
-      },
-      {
-        "projectTitle": "BAGANA AI",
-        "authorName": "Hansen Louisther",
-        "authorGithub": "louistherhansen",
-        "cohort": "Feb 2026",
-        "valueProposition": "AI-powered platform for KOL, influencer, and content creator agencies to manage content strategy at scale through integrated content planning, sentiment analysis, and market trend insights.",
-        "targetMarket": "Agency ops managers, content strategists, and campaign managers at KOL/influencer/content creator agencies",
-        "heroImageUrl": "projects/feb26-bagana-ai-louis-therhansen/hero.png",
-        "showcaseUrl": "projects/feb26-bagana-ai-louis-therhansen/index.html",
-        "techStack": ["Next.js", "FastAPI", "CrewAI", "PostgreSQL", "Docker", "TypeScript", "Tailwind CSS", "assistant-ui"],
-        "tags": ["multi-agent", "content-strategy", "Agentic Architect", "capstone", "AAMAD"]
-      }
-    ]
-  }
-  
+  "projects": [
+    {
+      "projectTitle": "CareSync AI",
+      "authorName": "Matt Burton",
+      "authorGithub": "savant01",
+      "cohort": "Feb 2026",
+      "valueProposition": "AI-powered platform for coordinating senior care across medical, financial, and legal domains — with multi-agent intelligence that turns family conversations into structured, actionable health data.",
+      "targetMarket": "Senior living facilities and family caregivers",
+      "heroImageUrl": "projects/feb26-caresync-ai-matt-burton/hero.png",
+      "showcaseUrl": "projects/feb26-caresync-ai-matt-burton/index.html",
+      "techStack": ["Next.js", "FastAPI", "CrewAI", "PostgreSQL", "Docker", "Prisma"],
+      "tags": ["multi-agent", "healthcare", "Agentic Architect", "capstone"]
+    },
+    {
+      "projectTitle": "BAGANA AI",
+      "authorName": "Hansen Louisther",
+      "authorGithub": "louistherhansen",
+      "cohort": "Feb 2026",
+      "valueProposition": "AI-powered platform for KOL, influencer, and content creator agencies to manage content strategy at scale through integrated content planning, sentiment analysis, and market trend insights.",
+      "targetMarket": "Agency ops managers, content strategists, and campaign managers at KOL/influencer/content creator agencies",
+      "heroImageUrl": "projects/feb26-bagana-ai-louis-therhansen/hero.png",
+      "showcaseUrl": "projects/feb26-bagana-ai-louis-therhansen/index.html",
+      "techStack": ["Next.js", "FastAPI", "CrewAI", "PostgreSQL", "Docker", "TypeScript", "Tailwind CSS", "assistant-ui"],
+      "tags": ["multi-agent", "content-strategy", "Agentic Architect", "capstone", "AAMAD"]
+    },
+    {
+      "projectTitle": "AttendeeXRAY",
+      "authorName": "Courtlin Holt-Nguyen",
+      "authorGithub": "courtlin-holt-nguyen",
+      "cohort": "May 2026",
+      "valueProposition": "Turn conference agendas, attendee lists, and your goals into ranked, source-backed meeting targets and conversation-ready XRAY cards—so you know who to meet, why, and what to say before you arrive.",
+      "targetMarket": "B2B GTM and sales professionals, startup founders, and conference attendees who need evidence-backed networking prep",
+      "heroImageUrl": "projects/may26-attendeexray-courtlin-holt-nguyen/hero.png",
+      "showcaseUrl": "projects/may26-attendeexray-courtlin-holt-nguyen/index.html",
+      "techStack": ["React", "TypeScript", "Vite", "FastAPI", "CrewAI", "PostgreSQL", "Celery", "Redis", "Railway"],
+      "tags": ["multi-agent", "agentic-architect", "capstone", "conference-intelligence", "CrewAI"]
+    }
+  ]
+}
