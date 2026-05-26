@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Agentic Support Platform – Agentic Architect Capstone</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+      margin: 0;
+      padding: 24px;
+      background: #020617;
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    h1, h2 {
+      color: #f9fafb;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    h2 {
+      margin-top: 1.8rem;
+      margin-bottom: 0.4rem;
+    }
+    p {
+      margin: 0.3rem 0;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 12px;
+      margin: 0.75rem 0;
+      border: 1px solid #1f2937;
+    }
+    ul { padding-left: 1.2rem; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.5rem;
+    }
+    th, td {
+      border: 1px solid #1f2937;
+      padding: 6px 8px;
+      font-size: 0.9rem;
+    }
+    th {
+      background: #020617;
+    }
+    .meta {
+      color: #9ca3af;
+      font-size: 0.9rem;
+      margin-bottom: 0.8rem;
+    }
+    .pill {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 3px 9px;
+      border: 1px solid #1f2937;
+      font-size: 0.8rem;
+      color: #9ca3af;
+      margin-right: 6px;
+    }
+    a {
+      color: #93c5fd;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Agentic Support Platform</h1>
+      <p class="meta">
+        Built by <strong>Beatriz Costa</strong> –
+        Capstone for "Become an Agentic Architect / Mastering Multiagent AI Systems with CrewAI".
+      </p>
+      <p>
+        <span class="pill">May 2026</span>
+        <span class="pill">CrewAI Flow</span>
+        <span class="pill">FastAPI</span>
+        <span class="pill">Claude Haiku 4.5</span>
+        <span class="pill">Claude Sonnet 4.6</span>
+        <span class="pill">Vanilla JS</span>
+      </p>
+      <p>Multi-agent AI customer support platform that combines CrewAI Flow orchestration, real-time external APIs, and LLM-as-judge quality evaluation to automate e-commerce support at scale.</p>
+      <p>
+        <a href="https://agentic-support-platform.vercel.app" target="_blank" rel="noopener noreferrer">Live demo →</a>
+        &nbsp;|&nbsp;
+        <a href="https://github.com/BeatrizCoder/agentic-support-platform" target="_blank" rel="noopener noreferrer">GitHub →</a>
+      </p>
+      <img src="hero.png" alt="Agentic Support Platform – hero screenshot" />
+    </header>
+
+    <section>
+      <h2>Problem &amp; Target Market</h2>
+      <p>E-commerce companies face high support ticket volumes with inconsistent response quality, costly human escalations, and no visibility into AI decision-making. Generic chatbots hallucinate, fail to use real operational data, and offer no HITL oversight for operators.</p>
+      <p>This platform targets <strong>e-commerce companies needing intelligent customer support automation</strong> — teams that want AI handling routine inquiries while keeping humans in control of escalations, with full observability into every agent decision.</p>
+    </section>
+
+    <section>
+      <h2>Solution Overview</h2>
+      <p>A 9-step CrewAI Flow pipeline processes every ticket: parallel classification and sentiment analysis → deterministic routing with 13 priority levels → real-time API enrichment (ViaCEP + OpenWeatherMap + Refund DB) → knowledge RAG synthesis → LLM response generation → background quality evaluation by a stronger judge model.</p>
+      <p>Operators get a full dashboard with HITL approve/reject/await controls, per-agent token observability, cost forecasting, and Excel + PDF export. Customers get personalized responses in ~8 seconds grounded in real operational data — never hallucinated facts.</p>
+    </section>
+
+    <section>
+      <h2>Key Features</h2>
+      <ul>
+        <li><strong>3 CrewAI Crews, 6 specialized AI agents</strong> — Analysis (parallel), Response (sequential), Evaluation (background, non-blocking)</li>
+        <li><strong>CrewAI Flow orchestrating full 9-step pipeline</strong> — state-managed, deterministic handoffs between LLM and rules-based steps</li>
+        <li><strong>Real-time integrations</strong> — ViaCEP (address/logistics), OpenWeatherMap (weather severity), SQLite Refund DB (10 seed records)</li>
+        <li><strong>LLM-as-judge quality evaluation</strong> — Claude Sonnet 4.6 scores Haiku responses on faithfulness, relevance, empathy, and completeness (0–10, grades A–F)</li>
+        <li><strong>Human-in-the-loop (HITL)</strong> — Operators can approve, reject, or set awaiting on escalated tickets; auto-resolved tickets show no HITL buttons</li>
+        <li><strong>Progressive escalation routing</strong> — 13 priority levels; system always follows auto-resolve → contextual → awaiting → escalate, never jumps to human without context</li>
+        <li><strong>JWT guest authentication</strong> — 24h stateless sessions, complete ticket isolation per guest ID, LGPD-compliant auto-deletion</li>
+        <li><strong>Export to Excel (4 sheets) + PDF (3 pages)</strong> — date-filtered, with KPI cards, cost forecasting, and agent performance breakdowns</li>
+        <li><strong>Dataset toggle</strong> — Live (user-isolated, 24h auto-delete) vs Historical (491 demo tickets)</li>
+        <li><strong>Full observability</strong> — per-agent token usage, cost per ticket (~$0.003272), hallucination rate card, cost forecasting (daily/weekly/monthly/yearly)</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Multi-agent Crew Design</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Agent</th>
+            <th>Role</th>
+            <th>Model</th>
+            <th>Trigger</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Classification Agent</td>
+            <td>Category + language detection</td>
+            <td>Claude Haiku 4.5</td>
+            <td>Every ticket (Crew 1, parallel)</td>
+          </tr>
+          <tr>
+            <td>Sentiment Agent</td>
+            <td>Emotion + urgency analysis</td>
+            <td>Claude Haiku 4.5</td>
+            <td>Every ticket (Crew 1, parallel with Classification)</td>
+          </tr>
+          <tr>
+            <td>Knowledge Agent</td>
+            <td>RAG synthesis from knowledge base</td>
+            <td>Claude Haiku 4.5</td>
+            <td>After routing (Crew 2, sequential)</td>
+          </tr>
+          <tr>
+            <td>Response Agent</td>
+            <td>Personalized response generation</td>
+            <td>Claude Haiku 4.5</td>
+            <td>After knowledge synthesis (Crew 2, sequential)</td>
+          </tr>
+          <tr>
+            <td>Summary Agent</td>
+            <td>2-line operator summary</td>
+            <td>Claude Haiku 4.5</td>
+            <td>Background, non-blocking (Crew 3)</td>
+          </tr>
+          <tr>
+            <td>Quality Agent</td>
+            <td>Cross-model evaluation (LLM-as-judge)</td>
+            <td>Claude Sonnet 4.6</td>
+            <td>Background, non-blocking (Crew 3)</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Technical Architecture</h2>
+      <ul>
+        <li><strong>Frontend</strong> — Vanilla JS, no framework, ~8000 lines; dual-view: Customer Portal (light violet) + Operator Dashboard (dark glassmorphism)</li>
+        <li><strong>Backend</strong> — FastAPI + CrewAI Flow + Python 3.11; SQLAlchemy + Neon PostgreSQL (AWS São Paulo)</li>
+        <li><strong>LLM</strong> — Claude Haiku 4.5 (6 agents) + Claude Sonnet 4.6 (judge); ~$0.003272 per ticket</li>
+        <li><strong>Auth</strong> — JWT guest tokens via python-jose; 24h expiry, browser-only storage, never persisted to DB</li>
+        <li><strong>External APIs</strong> — ViaCEP (httpx async, ~420ms), OpenWeatherMap (httpx async, ~380ms), SQLite refund + pending actions DBs</li>
+        <li><strong>Export</strong> — openpyxl (Excel, 4 sheets) + reportlab (PDF, 3 pages)</li>
+        <li><strong>Knowledge RAG</strong> — Token-controlled local retrieval; max 3 snippets × 800 chars = ~600 tokens (~88% token savings vs full docs)</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Deployment</h2>
+      <p>
+        <strong>Backend:</strong> <a href="https://web-production-126e2.up.railway.app" target="_blank" rel="noopener noreferrer">Railway</a> (primary, no cold start, Hobby plan) + Render (backup, free tier).
+        <strong>Frontend:</strong> <a href="https://agentic-support-platform.vercel.app" target="_blank" rel="noopener noreferrer">Vercel</a> (CDN, free).
+        <strong>Database:</strong> Neon PostgreSQL (serverless, AWS São Paulo, free tier).
+        <strong>Monitoring:</strong> UptimeRobot (5-min ping to prevent cold start).
+      </p>
+      <p>Deploy flow: <code>git push → GitHub → Railway + Render + Vercel auto-deploy</code></p>
+    </section>
+
+    <section>
+      <h2>Screenshots</h2>
+      <p><strong>Customer Portal</strong> — Intake form with Quick Demo dropdown (25+ pre-filled scenarios) and dynamic response cards.</p>
+      <img src="screen-1.png" alt="Customer Portal — intake form and response cards" />
+
+      <p><strong>Operator Dashboard — Ticket Queue</strong> — HITL controls, API tags, status filters, and dataset toggle.</p>
+      <img src="screen-2.png" alt="Operator Dashboard — ticket queue with HITL controls" />
+
+      <p><strong>Operator Dashboard — Observability</strong> — Per-agent token usage, cost breakdown, and quality evaluation scores.</p>
+      <img src="screen-3.png" alt="Operator Dashboard — observability tab with token and cost metrics" />
+
+      <p><strong>Analytics</strong> — Agent health dashboard (9 cards), cost forecasting, quality grades, and hallucination rate.</p>
+      <img src="screen-4.png" alt="Analytics — agent health cards and cost forecasting" />
+    </section>
+
+    <section>
+      <h2>🎥 Demo Video</h2>
+      <p style="color:#6B7280;font-style:italic">
+        Demo video coming soon.
+      </p>
+    </section>
+
+    <section>
+      <h2>My Role &amp; Learnings as Agentic Architect</h2>
+      <ul>
+        <li>Designed a 9-step CrewAI Flow pipeline separating LLM work from deterministic business rules — routing, escalation evaluation, and API calls are code, not prompts.</li>
+        <li>Implemented cross-model LLM-as-judge evaluation (Sonnet 4.6 evaluating Haiku 4.5) with hallucination detection across 4 dimensions, running asynchronously so it never blocks the customer response path.</li>
+        <li>Built progressive escalation routing with 13 priority levels grounded in real operational data (CEP, weather severity, refund status, pending actions) — the system never invents context it doesn't have.</li>
+        <li>Shipped full HITL operator tooling: approve/reject/await per ticket, per-agent token observability, cost forecasting, and date-filtered Excel + PDF export.</li>
+        <li>Implemented JWT guest authentication with 24h session isolation, LGPD-compliant auto-deletion, and complete per-user ticket isolation — production privacy from day one.</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

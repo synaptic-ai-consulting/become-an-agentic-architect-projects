@@ -35,6 +35,35 @@
       "showcaseUrl": "projects/may26-attendeexray-courtlin-holt-nguyen/index.html",
       "techStack": ["React", "TypeScript", "Vite", "FastAPI", "CrewAI", "PostgreSQL", "Celery", "Redis", "Railway"],
       "tags": ["multi-agent", "agentic-architect", "capstone", "conference-intelligence", "CrewAI"]
+    },
+    {
+      "projectTitle": "Agentic Support Platform",
+      "authorName": "Beatriz Costa",
+      "authorGithub": "BeatrizCoder",
+      "cohort": "May 2026",
+      "valueProposition": "Multi-agent AI customer support platform with CrewAI Flow, real-time external APIs, LLM-as-judge quality evaluation, and HITL operator dashboard",
+      "targetMarket": "E-commerce companies needing intelligent customer support automation",
+      "heroImageUrl": "projects/may26-agentic-support-platform-beatriz-costa/hero.png",
+      "showcaseUrl": "projects/may26-agentic-support-platform-beatriz-costa/index.html",
+      "techStack": [
+        "FastAPI",
+        "CrewAI Flow",
+        "Claude Haiku 4.5",
+        "Claude Sonnet 4.6",
+        "Neon PostgreSQL",
+        "Vanilla JS",
+        "Railway",
+        "Vercel"
+      ],
+      "tags": [
+        "multi-agent",
+        "customer-support",
+        "crewai-flow",
+        "llm-as-judge",
+        "hitl",
+        "fastapi",
+        "capstone"
+      ]
     }
   ]
 }
