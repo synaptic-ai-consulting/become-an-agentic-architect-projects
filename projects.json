@@ -64,6 +64,18 @@
         "fastapi",
         "capstone"
       ]
+    },
+    {
+      "projectTitle": "Multi-Agent GitHub Orchestration Crew",
+      "authorName": "Gabriel Ferreres",
+      "authorGithub": "gabrieltp",
+      "cohort": "May 2026",
+      "valueProposition": "An AI-driven project management assistant that autonomously translates meeting minutes into GitHub Issues, updates project boards, and drafts initial feature code.",
+      "targetMarket": "Agile software development teams utilizing GitHub Projects and Issues",
+      "heroImageUrl": "projects/may26-github-crew-gabriel-ferreres/hero.png",
+      "showcaseUrl": "projects/may26-github-crew-gabriel-ferreres/index.html",
+      "techStack": ["React", "FastAPI", "CrewAI", "GitHub API", "Railway"],
+      "tags": ["multi-agent", "agentic-architect", "capstone", "github-orchestration"]
     }
   ]
 }

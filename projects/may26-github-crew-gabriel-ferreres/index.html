@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Multi-Agent GitHub Orchestration Crew – Agentic Architect Capstone</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+      margin: 0;
+      padding: 24px;
+      background: #020617;
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    h1, h2 {
+      color: #f9fafb;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    h2 {
+      margin-top: 1.8rem;
+      margin-bottom: 0.4rem;
+    }
+    p {
+      margin: 0.3rem 0;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 12px;
+      margin: 0.75rem 0;
+      border: 1px solid #1f2937;
+    }
+    ul { padding-left: 1.2rem; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.5rem;
+    }
+    th, td {
+      border: 1px solid #1f2937;
+      padding: 6px 8px;
+      font-size: 0.9rem;
+    }
+    th {
+      background: #020617;
+    }
+    .meta {
+      color: #9ca3af;
+      font-size: 0.9rem;
+      margin-bottom: 0.8rem;
+    }
+    .pill {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 3px 9px;
+      border: 1px solid #1f2937;
+      font-size: 0.8rem;
+      color: #9ca3af;
+      margin-right: 6px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Multi-Agent GitHub Orchestration Crew</h1>
+      <p class="meta">
+        Built by <strong>Gabriel Ferreres</strong> –
+        Capstone for “Become an Agentic Architect / Mastering Multiagent AI Systems with CrewAI”.
+      </p>
+      <p>An AI-driven project management assistant that autonomously translates meeting minutes into GitHub Issues, updates project boards, and drafts initial feature code.</p>
+      <img src="hero.png" alt="Hero screenshot of Multi-Agent GitHub Orchestration Crew" />
+    </header>
+
+    <section>
+      <h2>Problem & Target Users</h2>
+      <p><strong>Target Users:</strong> Agile software development teams utilizing GitHub Projects and Issues, primarily Product Managers, Scrum Masters, and Software Engineers.</p>
+      <p><strong>The Problem:</strong> Software teams lose critical time manually translating meeting minutes into structured GitHub Issues, maintaining project boards, and tracking the alignment between defined stories and actual development work. This administrative overhead slows down actual software delivery.</p>
+    </section>
+
+    <section>
+      <h2>Solution Overview</h2>
+      <p>A multi-agent application utilizing CrewAI that seamlessly integrates with GitHub. The system processes unstructured meeting minutes to autonomously extract actionable tasks, create issues, and manage states in GitHub project boards. Furthermore, a specialized Developer Agent writes initial feature code based on these issues, while a Reporting UI provides a real-time, human-readable audit trail of all agent activities.</p>
+      <p>By bridging the gap between project management administration and software development, this tool transforms passive meeting transcripts into active, implemented features, dramatically accelerating the Agile software development lifecycle.</p>
+    </section>
+
+    <section>
+      <h2>Key Features</h2>
+      <ul>
+        <li><strong>Meeting Transcript Parsing</strong> – PM Agent extracts actionable development tasks from unstructured meeting minutes.</li>
+        <li><strong>Autonomous GitHub Issue Creation</strong> – PM Agent automatically uses the GitHub API to create detailed Issues based on the parsed requirements.</li>
+        <li><strong>Project Board Management</strong> – PM Agent autonomously moves issues to appropriate columns/states (e.g., 'Todo' to 'In Progress') in GitHub Projects.</li>
+        <li><strong>Automated Code Generation</strong> – Developer Agent reads newly created issues and scaffolds boilerplate or feature code directly into the repository.</li>
+        <li><strong>Activity Stream UI</strong> – A real-time, transparent activity feed that provides humans with a clear audit trail of all multi-agent operations.</li>
+        <li><strong>Human-in-the-Loop Safeguards</strong> – The Developer Agent writes code and creates PRs, but requires a human review before any code is deployed or merged.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Multi-agent AI Crew</h2>
+      <p>The application employs CrewAI with three specialized agents executing sequentially and collaboratively. The PM Agent analyzes meetings to manage GitHub, the Developer Agent implements the defined issues, and the Reporting Agent streams all actions to the frontend.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Agent</th>
+            <th>Role</th>
+            <th>Tools / Integrations</th>
+            <th>Trigger</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>PM Agent</td>
+            <td>Scrum Master / Agile Project Manager</td>
+            <td>GitHubWriteTool, GitHubReadTool</td>
+            <td>Meeting transcript submission</td>
+          </tr>
+          <tr>
+            <td>Developer Agent</td>
+            <td>Software Engineer</td>
+            <td>FileWriteTool, GitTool, GitHubReadTool</td>
+            <td>GitHub Issue creation</td>
+          </tr>
+          <tr>
+            <td>Reporting Agent</td>
+            <td>System Audit Communicator</td>
+            <td>UIWebSocketUpdateTool</td>
+            <td>Monitoring PM and Developer actions</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Technical Architecture</h2>
+      <ul>
+        <li><strong>Frontend</strong> – React Single Page Application (SPA) utilizing Server-Sent Events (SSE) or WebSockets for real-time streaming.</li>
+        <li><strong>Backend</strong> – Python FastAPI service hosting the CrewAI engine, handling transcript uploads and activity streaming.</li>
+        <li><strong>Data / storage</strong> – GitHub serves as the primary source of truth for issues, project boards, and codebase state.</li>
+        <li><strong>Integrations</strong> – GitHub REST/GraphQL APIs for project management; LLM Provider (OpenAI/Anthropic) for agent reasoning.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Deployment</h2>
+      <p>The application is designed for containerized deployment. The backend can run on platforms like AWS ECS, Heroku, or Railway via Docker, while the frontend SPA can be hosted on Vercel, Netlify, or Railway. It requires environment variables for <code>GITHUB_TOKEN</code> and the selected LLM provider (e.g., <code>OPENAI_API_KEY</code>).</p>
+    </section>
+
+    <section>
+      <h2>Screenshots</h2>
+      <ul>
+        <li><img src="screen-1.png" alt="Activity Stream UI showing agent actions in real-time" onerror="this.style.display='none'"/></li>
+        <li><img src="screen-2.png" alt="Generated GitHub Issue and initial code PR" onerror="this.style.display='none'"/></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>My Role & Learnings as Agentic Architect</h2>
+      <ul>
+        <li><strong>Multi-Agent Orchestration:</strong> Learned how to effectively decompose a complex workflow (Agile project management + coding) into discrete, manageable roles using CrewAI.</li>
+        <li><strong>Tool Engineering:</strong> Developed custom tools that allow AI agents to safely and reliably interact with external APIs like GitHub while enforcing least-privilege principles.</li>
+        <li><strong>Human-in-the-Loop Design:</strong> Implemented critical architectural safeguards, ensuring AI can generate code and manage tickets autonomously while requiring human oversight for final deployment (PR reviews).</li>
+        <li><strong>Real-Time UI Transparency:</strong> Designed an architecture that streams agent thought processes and actions to a frontend UI, proving that observability is crucial for user trust in autonomous systems.</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
