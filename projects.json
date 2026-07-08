@@ -76,6 +76,18 @@
       "showcaseUrl": "projects/may26-github-crew-gabriel-ferreres/index.html",
       "techStack": ["React", "FastAPI", "CrewAI", "GitHub API", "Railway"],
       "tags": ["multi-agent", "agentic-architect", "capstone", "github-orchestration"]
+    },
+    {
+      "projectTitle": "AASRA — AI-Supported Recruitment Assistant",
+      "authorName": "Alberto Domingo",
+      "authorGithub": "adomingoa",
+      "cohort": "June 2026",
+      "valueProposition": "AASRA automates evidence-based recruitment campaigns for staff hiring and contractor selection: a 17-agent CrewAI pipeline ingests documents, extracts requirements, assesses compliance, validates claims via OSINT, flags integrity risks, ranks candidates, and produces board-ready reports — with human-in-the-loop gates and full audit traceability.",
+      "targetMarket": "Recruitment board chairs, HR evaluators, and recruitment operations staff in document-heavy staff and contractor selection campaigns",
+      "heroImageUrl": "projects/jun26-aasra-alberto-domingo/hero.png",
+      "showcaseUrl": "projects/jun26-aasra-alberto-domingo/index.html",
+      "techStack": ["React", "TypeScript", "Vite", "FastAPI", "CrewAI", "CrewAI Flow", "SQLite", "Docker", "Render", "Vercel", "Cursor"],
+      "tags": ["multi-agent", "agentic-architect", "capstone", "recruitment", "CrewAI"]
     }
   ]
 }
