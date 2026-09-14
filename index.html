@@ -2,383 +2,952 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Become an Agentic Architect – Capstone Projects</title>
+  <title>Become an Agentic Architect — Course Page</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Alumni map, published capstones, reviews, and syllabus for Carmelo Iaria’s Become an Agentic Architect course on Maven.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
   <style>
     :root {
-      --bg: #050816;
-      --card-bg: #0f172a;
-      --accent: #38bdf8;
-      --accent-soft: rgba(56, 189, 248, 0.12);
-      --text: #e5e7eb;
-      --muted: #9ca3af;
-      --border: #1f2937;
-      --shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.6);
-      --radius-lg: 16px;
-      --radius-md: 10px;
-      --transition-fast: 0.18s ease-out;
+      --bg: #000000;
+      --bg-raised: #0b1220;
+      --bg-light: #e8eef6;
+      --panel: #111827;
+      --title: #b2d3fa;
+      --lime: #cdff92;
+      --star: #f8a740;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --ink: #0f172a;
+      --ink-muted: #475569;
+      --border: #1e293b;
+      --header-h: 76px;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
-      background: radial-gradient(circle at top, #0b1120 0, #020617 55%, #000 100%);
+    html, body {
+      background: var(--bg);
       color: var(--text);
-      min-height: 100vh;
+      font-family: "Source Sans 3", system-ui, sans-serif;
     }
-    .page {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 32px 20px 48px;
+    a { color: var(--title); }
+    h1, h2, .brand {
+      font-family: "Source Serif 4", Georgia, serif;
     }
-    header {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-bottom: 32px;
+
+    .site-header {
+      position: sticky; top: 0; z-index: 2000; min-height: var(--header-h);
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      padding: 12px 24px; background: rgba(0,0,0,0.92);
+      border-bottom: 1px solid #1a2436; backdrop-filter: blur(10px);
     }
-    .badge-row {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 4px;
-      flex-wrap: wrap;
+    .site-header .brand {
+      color: var(--title); text-decoration: none;
+      font-size: clamp(1.45rem, 2.4vw, 1.95rem); font-weight: 600;
+      letter-spacing: -0.02em; line-height: 1.15;
     }
-    .badge {
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--accent-soft);
-      background: radial-gradient(circle at top, rgba(56,189,248,0.14), transparent 55%);
-      color: var(--accent);
-      font-size: 12px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+    .site-header .brand a { color: inherit; text-decoration: none; }
+    .header-actions { display: flex; align-items: center; gap: 16px; flex-shrink: 0; }
+    .maven-logo { height: 28px; width: auto; display: block; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 10px 16px; border-radius: 6px; border: 1px solid var(--title);
+      background: transparent; color: var(--title); text-decoration: none;
+      font-size: 0.88rem; font-weight: 600; white-space: nowrap;
     }
-    .pill {
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 11px;
+    .btn:hover { background: rgba(178,211,250,0.12); }
+    .btn-lime {
+      background: var(--lime); color: #111; border-color: var(--lime); font-weight: 700;
     }
-    h1 {
-      font-size: clamp(2.1rem, 3vw, 2.6rem);
-      letter-spacing: -0.04em;
-      font-weight: 650;
-    }
-    .subtitle {
-      max-width: 720px;
-      color: var(--muted);
-      font-size: 0.98rem;
-      line-height: 1.6;
-      margin-top: 4px;
-    }
-    .sub-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 10px;
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-    .sub-row span {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .sub-row span::before {
-      content: "●";
-      font-size: 6px;
-      color: var(--accent);
-    }
-    .gallery {
+    .btn-lime:hover { background: #d9ffb0; color: #111; }
+
+    .hero {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-      margin-top: 24px;
+      grid-template-columns: 25% minmax(0, 75%);
+      height: 560px;
+      background: #000;
     }
-    .card {
+    .hero-brand {
       position: relative;
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      background: radial-gradient(circle at top left, rgba(56,189,248,0.25), transparent 55%), var(--card-bg);
-      border: 1px solid rgba(15,23,42,0.9);
-      box-shadow: var(--shadow-soft);
-      display: flex;
-      flex-direction: column;
-      min-height: 320px;
+      min-width: 0;
+      padding: 20px 18px 24px;
+      display: flex; flex-direction: column; justify-content: flex-start; gap: 10px;
+      border-right: 1px solid #1a2436;
+      overflow: auto;
+      background:
+        linear-gradient(180deg, rgba(178,211,250,0.06), transparent 40%),
+        #000;
+    }
+    .hero-brand::before {
+      content: "";
+      position: absolute; inset: 0; pointer-events: none;
+      background-image:
+        linear-gradient(rgba(178,211,250,0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(178,211,250,0.08) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(#000, transparent 88%);
+    }
+    .hero-photo {
+      width: 140px; height: 140px; max-width: 100%; object-fit: cover; object-position: center top;
+      border-radius: 10px; background: #000; position: relative; z-index: 1; flex: 0 0 140px;
+    }
+    .hero-top {
+      display: flex; align-items: flex-start; gap: 12px;
+      position: relative; z-index: 1;
+    }
+    .hero-meta {
+      display: flex; flex-direction: column; gap: 8px;
+      min-width: 0; padding-top: 2px;
+    }
+    .stars { color: var(--star); font-size: 0.92rem; letter-spacing: 0.04em; position: relative; z-index: 1; }
+    .stars span { color: var(--title); font-size: 0.8rem; }
+    .hero-name { position: relative; z-index: 1; font-size: 1.15rem; font-weight: 600; }
+    .hero-role {
+      position: relative; z-index: 1; color: #cbd5e1; font-size: 0.78rem; line-height: 1.45;
+    }
+    .info-pill {
+      position: relative; z-index: 1; align-self: flex-start;
+      background: transparent; color: var(--title);
+      border: 1px solid var(--title); font-weight: 600; font-size: 0.72rem;
+      padding: 8px 10px; border-radius: 4px; line-height: 1.25; text-align: center;
+      max-width: 7.6rem;
+    }
+    .hero-map { position: relative; min-height: 0; background: #1a2332; }
+    #map { position: absolute; inset: 0; }
+    .leaflet-container { background: #1a2332; font-family: inherit; }
+    .leaflet-tile { filter: saturate(0.85) brightness(0.92) contrast(1.05); }
+    .map-caption {
+      position: absolute; top: 12px; left: 12px; z-index: 1000;
+      background: rgba(15, 20, 25, 0.92); border: 1px solid #2a3441; border-radius: 8px;
+      padding: 10px 12px; max-width: 280px;
+    }
+    .map-caption strong { display: block; font-size: 0.82rem; margin-bottom: 4px; }
+    .map-caption p { font-size: 0.72rem; color: var(--muted); line-height: 1.4; }
+    .map-hint {
+      position: absolute; bottom: 16px; right: 12px; z-index: 1000;
+      background: rgba(15, 20, 25, 0.92); border: 1px solid #2a3441; border-radius: 8px;
+      padding: 8px 10px; font-size: 0.72rem; color: var(--muted);
+    }
+    .hero-map.is-active .map-hint { color: var(--lime); }
+    #legend {
+      position: absolute; bottom: 16px; left: 12px; z-index: 1000;
+      background: rgba(15, 20, 25, 0.92); border: 1px solid #2a3441; border-radius: 8px;
+      padding: 10px 14px; font-size: 10px; color: #94a3b8;
+    }
+    #legend strong { color: #e2e8f0; display: block; margin-bottom: 6px; font-size: 11px; }
+    #legend .swatch { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: middle; }
+    .legend-view {
+      margin-top: 8px; padding-top: 6px; border-top: 1px solid #2a3441;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .legend-eye {
+      width: 14px; height: 14px; border-radius: 50%; background: var(--lime); color: #111;
+      display: inline-flex; align-items: center; justify-content: center;
+    }
+    .legend-eye svg { width: 9px; height: 9px; }
+
+    .alumni-leaflet-icon {
+      background: none !important;
+      border: none !important;
+      overflow: visible !important;
+    }
+    .alumni-leaflet-icon.is-hovered {
+      z-index: 20000 !important;
+    }
+    .alumni-marker { position: relative; width: 18px; height: 18px; }
+    .alumni-pin {
+      position: absolute; inset: -4px;
+      border: 0; padding: 0; background: none; cursor: pointer;
+      z-index: 6;
+    }
+    .alumni-dot {
+      position: absolute; left: 1px; top: 1px; width: 16px; height: 16px;
+      border-radius: 50%; background: #3b82f6; border: 2px solid #fff;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.45); z-index: 3; pointer-events: none;
+    }
+    .alumni-place {
+      position: absolute; left: 22px; top: -2px; white-space: nowrap;
+      font-size: 10px; font-weight: 600; color: #f1f5f9;
+      text-shadow: 0 0 3px #0f1419, 0 1px 2px #0f1419; z-index: 2; pointer-events: none;
+    }
+    .alumni-pole {
+      position: absolute; left: 8px; top: -82px; width: 2px; height: 82px;
+      background: linear-gradient(to top, #64748b, #94a3b8); z-index: 1; pointer-events: none;
+    }
+    .alumni-flag {
+      position: absolute; left: 18px; top: -108px; min-width: 132px; max-width: 210px;
+      padding: 7px 28px 7px 10px; background: #f8fafc; color: #0f172a;
+      border: 1px solid #cbd5e1; border-left: 4px solid #3b82f6;
+      font-size: 9px; font-weight: 600; line-height: 1.25;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25); z-index: 8;
+      appearance: none; font-family: inherit; text-align: left; margin: 0;
+      display: block; cursor: default;
+    }
+    .alumni-flag .company { font-size: 8px; font-weight: 600; color: #475569; margin-bottom: 2px; display: block; }
+    .alumni-flag .title { display: block; padding-right: 2px; }
+    .flag-view-icon {
+      display: none; position: absolute; top: 5px; right: 5px;
+      width: 16px; height: 16px; border-radius: 50%;
+      background: #111; color: var(--lime);
+      align-items: center; justify-content: center; pointer-events: none;
+    }
+    .flag-view-icon svg { width: 10px; height: 10px; }
+    .zoom-eye {
+      display: none; position: absolute; left: 18px; top: 2px; z-index: 7;
+      width: 14px; height: 14px; border-radius: 50%; background: var(--lime); color: #111;
+      align-items: center; justify-content: center; pointer-events: none;
+    }
+    .zoom-eye svg { width: 9px; height: 9px; }
+    .has-project { cursor: pointer; }
+    .has-project .alumni-flag {
+      background: var(--lime);
+      color: #111;
+      border-color: #b6e86a;
+      box-shadow: 0 2px 12px rgba(205,255,146,0.55);
       cursor: pointer;
-      transform-origin: center;
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
     }
-    .card:hover {
-      transform: translateY(-4px) translateZ(0) scale(1.01);
-      border-color: rgba(56,189,248,0.5);
-      box-shadow: 0 16px 40px rgba(15,23,42,0.9);
+    .has-project .alumni-flag .company { color: #1a3a08; }
+    .has-project .flag-view-icon { display: flex; }
+    .has-project .alumni-dot {
+      background: var(--lime);
+      border-color: #111;
+      box-shadow: 0 0 0 3px var(--lime);
     }
-    .card-thumb {
-      position: relative;
-      padding: 14px 14px 0;
+    .alumni-marker.flags-off .alumni-flag,
+    .alumni-marker.flags-off .alumni-pole,
+    .alumni-marker.flags-off .alumni-place { display: none; }
+    .alumni-marker.flags-on .alumni-flag,
+    .alumni-marker.flags-on .alumni-pole,
+    .alumni-marker.flags-on .alumni-place { display: block; }
+    .has-project.flags-off .zoom-eye { display: flex; }
+    .has-project.flags-on .zoom-eye { display: none; }
+
+    .cohort-1 .alumni-flag { border-left-color: #8b5cf6; }
+    .cohort-1 .alumni-dot { background: #8b5cf6; }
+    .cohort-2 .alumni-flag { border-left-color: #06b6d4; }
+    .cohort-2 .alumni-dot { background: #06b6d4; }
+    .cohort-3 .alumni-flag { border-left-color: #3b82f6; }
+    .cohort-3 .alumni-dot { background: #3b82f6; }
+    .cohort-4 .alumni-flag { border-left-color: #f59e0b; }
+    .cohort-4 .alumni-dot { background: #f59e0b; }
+    .cohort-5 .alumni-flag { border-left-color: #10b981; }
+    .cohort-5 .alumni-dot { background: #10b981; }
+    .cohort-6 .alumni-flag { border-left-color: #f43f5e; }
+    .cohort-6 .alumni-dot { background: #f43f5e; }
+    .cohort-corp .alumni-flag, .cohort-group .alumni-flag { border-left-color: #e879f9; }
+    .cohort-corp .alumni-dot, .cohort-group .alumni-dot { background: #e879f9; }
+    .alumni-marker.has-project .alumni-dot {
+      background: var(--lime);
+      border-color: #111;
+      box-shadow: 0 0 0 3px #111;
     }
-    .thumb-frame {
-      border-radius: 14px;
-      overflow: hidden;
-      border: 1px solid rgba(15,23,42,0.9);
-      background: radial-gradient(circle at top, #020617, #020617);
-      aspect-ratio: 16 / 9;
-      position: relative;
-      isolation: isolate;
+    .alumni-marker.has-project .alumni-flag { border-left-color: #111; }
+
+    .section { padding: 72px 24px; scroll-margin-top: calc(var(--header-h) + 8px); }
+    .section-inner { max-width: 1120px; margin: 0 auto; }
+    .section h2 { font-size: clamp(1.7rem, 3vw, 2.25rem); letter-spacing: -0.03em; margin-bottom: 10px; font-weight: 600; }
+    .section-heading {
+      display: flex; align-items: baseline; justify-content: space-between;
+      gap: 16px; flex-wrap: wrap; margin-bottom: 10px;
     }
-    .thumb-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transform: scale(1.01);
-      transition: transform var(--transition-fast), filter var(--transition-fast), opacity var(--transition-fast);
+    .section-heading h2 { margin-bottom: 0; }
+    .reviews-rating {
+      color: var(--ink-muted); font-size: 1.05rem; font-weight: 500; white-space: nowrap;
     }
-    .card:hover .thumb-frame img {
-      transform: scale(1.03);
-      filter: saturate(1.05);
+    .reviews-rating .stars { color: var(--star); letter-spacing: 0.06em; }
+    .section .lede { color: var(--muted); margin-bottom: 28px; line-height: 1.55; max-width: 720px; font-size: 1.02rem; }
+    .band-light { background: var(--bg-light); color: var(--ink); }
+    .band-light h2 { color: var(--ink); }
+    .band-light .lede { color: var(--ink-muted); }
+    .band-dark { background: #000; color: var(--text); }
+    .band-raised { background: var(--bg-raised); color: var(--text); }
+
+    .reviews-scroller {
+      max-height: 46.5rem;
+      overflow-y: auto;
+      padding-right: 4px;
     }
-    .thumb-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(15,23,42,0.85), transparent 40%);
-      opacity: 0.6;
-      mix-blend-mode: soft-light;
-      pointer-events: none;
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
     }
-    .card-body {
-      padding: 14px 16px 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      flex-grow: 1;
+    .review-card {
+      background: #fff; color: var(--ink);
+      border-radius: 14px; padding: 20px 20px 16px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+      border: 1px solid #dbe4ee;
+      display: flex; flex-direction: column; min-height: 14.2rem;
     }
-    .card-title-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 8px;
+    .review-stars { color: var(--star); font-size: 0.85rem; margin-bottom: 10px; letter-spacing: 0.04em; }
+    .review-quote {
+      font-size: 0.92rem; line-height: 1.5; color: #1e293b; flex: 1;
+      display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden;
     }
-    .card-title {
-      font-size: 1rem;
-      font-weight: 600;
-      letter-spacing: -0.02em;
+    .review-card.is-open .review-quote { display: block; -webkit-line-clamp: unset; overflow: visible; }
+    .review-more {
+      margin-top: 8px; border: 0; background: none; color: #2563eb;
+      font: inherit; font-size: 0.82rem; font-weight: 600; cursor: pointer; padding: 0; text-align: left;
     }
-    .card-cohort {
-      font-size: 0.75rem;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      white-space: nowrap;
+    .review-foot {
+      display: flex; align-items: center; gap: 10px; margin-top: 14px; padding-top: 12px;
+      border-top: 1px solid #e2e8f0;
     }
-    .card-author {
-      font-size: 0.86rem;
-      color: var(--muted);
+    .avatar {
+      width: 36px; height: 36px; border-radius: 50%; background: #0b1220; color: var(--title);
+      display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;
     }
-    .card-author a {
-      color: var(--accent);
-      text-decoration: none;
+    .review-name { font-weight: 700; font-size: 0.9rem; }
+    .review-title { font-size: 0.75rem; color: var(--ink-muted); }
+    .review-date { font-size: 0.72rem; color: #64748b; margin-left: auto; white-space: nowrap; }
+
+    .cap-grid {
+      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px;
     }
-    .card-author a:hover { text-decoration: underline; }
-    .card-desc {
-      font-size: 0.88rem;
-      color: var(--muted);
-      line-height: 1.5;
+    .cap-card {
+      background: var(--panel); border: 1px solid var(--border); border-radius: 16px;
+      overflow: hidden; cursor: pointer; display: flex; flex-direction: column;
+      min-height: 100%;
     }
-    .tag-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 4px;
+    .cap-card:hover { border-color: var(--title); }
+    .cap-thumb { aspect-ratio: 16 / 10; background: #020617; overflow: hidden; }
+    .cap-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .cap-body { padding: 16px 16px 18px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+    .cap-kicker { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--lime); font-weight: 700; }
+    .cap-card h3 { font-family: "Source Serif 4", Georgia, serif; font-size: 1.2rem; }
+    .cap-author { font-size: 0.85rem; color: var(--muted); }
+    .cap-desc { font-size: 0.9rem; color: #cbd5e1; line-height: 1.5; }
+    .cap-cta { margin-top: auto; padding-top: 8px; font-size: 0.8rem; font-weight: 700; color: var(--title); }
+    .section-link { margin-top: 22px; }
+
+    .instructor-grid { display: grid; grid-template-columns: 220px 1fr; gap: 32px; align-items: start; }
+    .instructor-photo {
+      width: 220px; height: 220px; object-fit: cover; border-radius: 12px;
+      border: 1px solid var(--border); background: #000;
     }
-    .tag {
-      font-size: 0.75rem;
-      padding: 3px 8px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(15,23,42,0.85);
-      color: var(--muted);
+    .instructor-copy p { color: var(--muted); line-height: 1.65; margin-bottom: 14px; }
+    .creds { list-style: none; color: var(--muted); font-size: 0.92rem; line-height: 1.55; margin: 12px 0 18px; }
+    .creds li { padding-left: 14px; position: relative; margin-bottom: 6px; }
+    .creds li::before { content: ""; position: absolute; left: 0; top: 0.55em; width: 6px; height: 6px; border-radius: 50%; background: var(--lime); }
+    .badge-row { display: flex; align-items: center; gap: 14px; margin-top: 8px; }
+    .ccarp-badge { width: 88px; height: 88px; object-fit: contain; }
+    .badge-caption { font-size: 0.8rem; color: var(--muted); max-width: 280px; line-height: 1.4; }
+
+    .week {
+      border: 1px solid #cdd7e4; border-radius: 12px; margin-bottom: 10px; background: #fff; overflow: hidden;
     }
-    .footer-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 10px;
-      font-size: 0.8rem;
-      color: var(--muted);
+    .week summary {
+      cursor: pointer; padding: 14px 16px; font-weight: 600; list-style: none;
     }
-    .pill-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 5px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(56,189,248,0.35);
-      background: radial-gradient(circle at top, rgba(56,189,248,0.18), transparent 60%);
-      color: var(--accent);
-      text-decoration: none;
-      font-size: 0.78rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
+    .week summary::-webkit-details-marker { display: none; }
+    .week-body { padding: 0 16px 16px; }
+    .session { font-size: 0.9rem; margin-bottom: 6px; color: var(--ink); }
+    .session .duration { color: var(--ink-muted); font-weight: 500; }
+    .modules { list-style: none; margin: 12px 0 0; padding: 0; }
+    .module { margin-top: 12px; }
+    .module-title { font-weight: 600; color: var(--ink); font-size: 0.9rem; }
+    .lessons { margin: 6px 0 0 18px; color: var(--ink-muted); font-size: 0.85rem; line-height: 1.5; }
+    .lesson-project::after { content: " · project"; font-size: 0.75rem; font-weight: 600; color: #64748b; }
+    .syllabus-cta { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+
+    footer.page-footer {
+      border-top: 1px solid var(--border); padding: 24px 24px 40px; color: var(--muted); font-size: 0.82rem;
+      display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; background: #000;
     }
-    .pill-link span { font-size: 0.8rem; }
-    .pill-link:hover { border-color: rgba(56,189,248,0.7); }
-    .pill-link svg { width: 13px; height: 13px; }
-    .empty {
-      margin-top: 24px;
-      color: var(--muted);
-      font-size: 0.9rem;
+
+    .modal {
+      display: none; position: fixed; inset: 0; z-index: 3000;
+      background: rgba(0, 0, 0, 0.82); padding: 24px 16px;
     }
-    @media (max-width: 640px) {
-      .page { padding: 24px 16px 32px; }
-      header { margin-bottom: 20px; }
-      .card { min-height: 0; }
+    .modal.open { display: flex; align-items: center; justify-content: center; }
+    .modal-card {
+      width: min(1100px, 100%); height: min(88vh, 900px);
+      background: #020617; border: 1px solid var(--border); border-radius: 14px;
+      display: flex; flex-direction: column; overflow: hidden;
+    }
+    .modal-head {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      padding: 12px 16px; border-bottom: 1px solid var(--border);
+    }
+    .modal-head h3 { font-size: 1rem; }
+    .modal-head p { font-size: 0.78rem; color: var(--muted); }
+    .modal-actions { display: flex; gap: 8px; align-items: center; }
+    .modal iframe { flex: 1; width: 100%; border: 0; background: #fff; }
+    .icon-btn {
+      width: 36px; height: 36px; border-radius: 8px; border: 1px solid var(--border);
+      background: var(--panel); color: var(--text); cursor: pointer; font-size: 1.1rem;
+    }
+
+    @media (max-width: 980px) {
+      .reviews-grid, .cap-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .reviews-scroller { max-height: 44rem; }
+    }
+    @media (max-width: 800px) {
+      .hero { grid-template-columns: 1fr; height: auto; }
+      .hero-brand { padding: 24px 20px; border-right: 0; border-bottom: 1px solid #1a2436; }
+      .hero-photo { width: 140px; }
+      .hero-map { height: 62vh; min-height: 420px; }
+      .instructor-grid { grid-template-columns: 1fr; }
+      .instructor-photo { width: 160px; height: 160px; }
+      .reviews-grid, .cap-grid { grid-template-columns: 1fr; }
+      .maven-logo { height: 22px; }
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <header>
-      <div class="badge-row">
-        <span class="badge">Agentic Architect</span>
-        <span class="pill">Capstone Wall of Fame</span>
-      </div>
-      <h1>Become an Agentic Architect – Capstone Projects</h1>
-      <p class="subtitle">
-        Production-grade multi-agent AI applications built by engineers and technical leaders in Carmelo Iaria’s Maven course
-        “Become an Agentic Architect / Mastering Multiagent AI Systems with CrewAI”.
-      </p>
-      <div class="sub-row">
-        <span>Built with CrewAI, Cursor &amp; the AAMAD framework</span>
-        <span>6-week project-based cohorts on Maven</span>
-      </div>
-    </header>
+  <header class="site-header">
+    <h1 class="brand"><a href="./">Become an Agentic Architect</a></h1>
+    <div class="header-actions">
+      <img class="maven-logo" src="assets/brand/maven-logo.png" alt="Maven">
+      <a class="btn btn-lime" href="https://maven.com/carmelo-iaria/agentic-architect" target="_blank" rel="noopener">About this course</a>
+    </div>
+  </header>
 
-    <section id="gallery">
-      <div id="cards" class="gallery"></div>
-      <p id="empty" class="empty" style="display:none;">
-        No projects published yet. Check back after the next cohort ships their capstones.
-      </p>
-    </section>
+  <section class="hero" aria-label="Course hero and alumni map">
+    <div class="hero-brand">
+      <div class="hero-top">
+        <img class="hero-photo" src="assets/instructor/carmelo-iaria.jpg" alt="Carmelo Iaria">
+        <div class="hero-meta">
+          <p class="stars">★★★★★ <span>(30)</span></p>
+          <span class="info-pill">6-weeks Project-Based Course</span>
+        </div>
+      </div>
+      <p class="hero-name">Carmelo Iaria</p>
+      <p class="hero-role">Agentic Architect · O’Reilly Instructor · Pearson SME · ex-Cisco</p>
+    </div>
+    <div class="hero-map" id="hero-map">
+      <div id="map"></div>
+      <div class="map-caption">
+        <strong>Alumni around the world</strong>
+        <p id="map-sub">Loading map… Click the map to zoom. Scroll the page anywhere else, including the left column.</p>
+      </div>
+      <div id="legend"><strong>Cohort</strong></div>
+      <div class="map-hint" id="map-hint">Click map to zoom · drag to pan</div>
+    </div>
+  </section>
+
+  <section class="section band-light" id="reviews">
+    <div class="section-inner">
+      <div class="section-heading">
+        <h2>Alumni reviews</h2>
+        <p class="reviews-rating">average rating <span class="stars">★★★★★</span> (30)</p>
+      </div>
+      <p class="lede" id="reviews-lede">What students wrote after shipping the course.</p>
+      <div class="reviews-scroller" id="reviews-scroller">
+        <div class="reviews-grid" id="reviews-grid"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band-dark" id="capstones">
+    <div class="section-inner">
+      <h2>Published capstones</h2>
+      <p class="lede">Projects students shipped in the cohort. Click a card to open the full write-up.</p>
+      <div class="cap-grid" id="cap-grid"></div>
+      <p id="cap-empty" class="lede" style="display:none;">No projects published yet.</p>
+      <div class="section-link">
+        <a class="btn" href="wall-of-fame.html">See all published projects</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band-raised" id="instructor">
+    <div class="section-inner">
+      <h2>About the instructor</h2>
+      <div class="instructor-grid">
+        <img class="instructor-photo" src="assets/instructor/carmelo-iaria.jpg" alt="Carmelo Iaria" width="800" height="804">
+        <div class="instructor-copy">
+          <p>I help engineers, product leaders, and AI builders move from fragmented experimentation to reliable multi-agent delivery. After 30+ years across Europe, the US, and Brazil, my focus is practical: helping teams design systems that ship with quality, not just demos that look good once.</p>
+          <p>I teach a repeatable operating model for agentic systems using AAMAD — from scope and context design to architecture, debugging, and delivery checkpoints. In this course, students build real capstone outcomes with coaching, reviews, and implementation support.</p>
+          <ul class="creds">
+            <li>30+ years in technology leadership across Europe, Silicon Valley, and Brazil</li>
+            <li>Product leadership at Cisco (12 years) and innovation leadership at Claro Brasil (8 years)</li>
+            <li>AI education and certification SME with Pearson; contributor in the O’Reilly learning ecosystem</li>
+            <li>MSEE Telecommunications, Politecnico di Torino</li>
+          </ul>
+          <div class="badge-row">
+            <img class="ccarp-badge" src="assets/instructor/claude-certified-architect-professional.png" alt="Claude Certified Architect Professional badge">
+            <p class="badge-caption">Carmelo holds the Claude Certified Architect – Professional credential. The course covers the same competency domains, vendor-agnostic and project-based — it does not grant the Anthropic credential.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band-light" id="syllabus">
+    <div class="section-inner">
+      <h2>Course syllabus</h2>
+      <p class="lede" id="syllabus-lede">Six weeks. One capstone you ship.</p>
+      <div id="weeks"></div>
+      <div class="syllabus-cta">
+        <a class="btn btn-lime" href="https://maven.com/carmelo-iaria/agentic-architect" target="_blank" rel="noopener">See the next open cohort</a>
+        <a class="btn" href="wall-of-fame.html" style="border-color:#94a3b8;color:#0f172a;">Browse published projects</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="page-footer">
+    <span>Synaptic AI Consulting · Become an Agentic Architect</span>
+    <span><a href="wall-of-fame.html">Wall of Fame gallery</a> · <a href="https://maven.com/carmelo-iaria/agentic-architect">Maven listing</a></span>
+  </footer>
+
+  <div class="modal" id="project-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-card">
+      <div class="modal-head">
+        <div>
+          <h3 id="modal-title">Project</h3>
+          <p id="modal-meta"></p>
+        </div>
+        <div class="modal-actions">
+          <a class="btn" id="modal-open" href="#" target="_blank" rel="noopener">Open in new tab</a>
+          <button type="button" class="icon-btn" id="modal-close" aria-label="Close">×</button>
+        </div>
+      </div>
+      <iframe id="modal-frame" title="Capstone project"></iframe>
+    </div>
   </div>
 
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script src="assets/alumni-map-data.js"></script>
   <script>
-    async function loadProjects() {
-      try {
-        const res = await fetch('projects.json');
-        if (!res.ok) throw new Error('projects.json not found');
-        const data = await res.json();
-        return data.projects || [];
-      } catch (e) {
-        console.error(e);
-        return [];
-      }
+    const FLAG_ZOOM = 4;
+    const EYE_SVG = `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/></svg>`;
+    const COHORT_COLORS = {
+      1: "#8b5cf6", 2: "#06b6d4", 3: "#3b82f6", 4: "#f59e0b", 5: "#10b981", 6: "#f43f5e",
+      corp: "#e879f9"
+    };
+
+    function escapeHtml(s) {
+      return String(s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
     }
 
-    function createCard(project) {
-      const card = document.createElement('article');
-      card.className = 'card';
-      card.onclick = () => {
-        if (project.showcaseUrl) {
-          window.open(project.showcaseUrl, '_blank', 'noopener');
+    function resolveProjectUrl(url) {
+      if (!url) return "";
+      if (/^https?:\/\//i.test(url)) return url;
+      return String(url).replace(/^\//, "");
+    }
+
+    function alumniHeadcount(pins) {
+      return pins.reduce((n, a) => n + (Number(a.headcount) > 0 ? Number(a.headcount) : 1), 0);
+    }
+
+    function legendKey(pin) {
+      if (pin.group) return String(pin.group);
+      return String(pin.cohort);
+    }
+
+    function cohortClass(pin) {
+      if (pin.group) return "cohort-group";
+      return "cohort-" + pin.cohort;
+    }
+
+    function flagHtml(a, flagsOn) {
+      const hasProject = Boolean(a.showcaseUrl);
+      const off = flagsOn ? "flags-on" : "flags-off";
+      const kicker = hasProject ? (a.projectTitle || a.company) : a.company;
+      const line = hasProject ? (a.authorName || a.title) : a.title;
+      const flagTag = hasProject ? "button type=\"button\"" : "div";
+      const flagClose = hasProject ? "button" : "div";
+      const pinTag = hasProject ? "button type=\"button\"" : "div";
+      const pinClose = hasProject ? "button" : "div";
+      const openAttr = hasProject ? " data-project-open=\"true\"" : "";
+      return `
+        <div class="alumni-marker ${cohortClass(a)} ${hasProject ? "has-project" : ""} ${off}">
+          <div class="alumni-pole"></div>
+          <${flagTag} class="alumni-flag"${openAttr}>
+            <span class="flag-view-icon">${EYE_SVG}</span>
+            <span class="company">${escapeHtml(kicker)}</span>
+            <span class="title">${escapeHtml(line)}</span>
+          </${flagClose}>
+          <div class="alumni-place">${escapeHtml(a.place)}</div>
+          <${pinTag} class="alumni-pin"${openAttr}>
+            <div class="alumni-dot"></div>
+            <div class="zoom-eye">${EYE_SVG}</div>
+          </${pinClose}>
+        </div>`;
+    }
+
+    function spreadOverlappingPins(pins) {
+      const copies = pins.map((p) => ({ ...p, lat: Number(p.lat), lng: Number(p.lng) }));
+      const used = new Set();
+      const thresh = 0.05;
+      copies.forEach((pin, i) => {
+        if (used.has(i)) return;
+        const group = [i];
+        for (let j = i + 1; j < copies.length; j++) {
+          if (used.has(j)) continue;
+          const dlat = copies[j].lat - pin.lat;
+          const dlng = copies[j].lng - pin.lng;
+          if ((dlat * dlat) + (dlng * dlng) <= thresh * thresh) group.push(j);
         }
-      };
-
-      const thumb = document.createElement('div');
-      thumb.className = 'card-thumb';
-      thumb.innerHTML = `
-        <div class="thumb-frame">
-          <img src="${project.heroImageUrl || ''}" alt="${project.projectTitle || 'Capstone project'}" loading="lazy" />
-          <div class="thumb-overlay"></div>
-        </div>
-      `;
-
-      const body = document.createElement('div');
-      body.className = 'card-body';
-
-      const titleRow = document.createElement('div');
-      titleRow.className = 'card-title-row';
-
-      const title = document.createElement('h2');
-      title.className = 'card-title';
-      title.textContent = project.projectTitle || 'Untitled Project';
-
-      const cohort = document.createElement('span');
-      cohort.className = 'card-cohort';
-      cohort.textContent = project.cohort || 'Cohort';
-
-      titleRow.appendChild(title);
-      titleRow.appendChild(cohort);
-
-      const author = document.createElement('p');
-      author.className = 'card-author';
-      if (project.authorGithub) {
-        author.innerHTML = `by <a href="https://github.com/${project.authorGithub}" target="_blank" rel="noopener">@${project.authorGithub}</a>`;
-      } else if (project.authorName) {
-        author.textContent = `by ${project.authorName}`;
-      }
-
-      const desc = document.createElement('p');
-      desc.className = 'card-desc';
-      desc.textContent = project.valueProposition || '';
-
-      const tagsRow = document.createElement('div');
-      tagsRow.className = 'tag-row';
-      (project.techStack || []).slice(0, 4).forEach(tag => {
-        const el = document.createElement('span');
-        el.className = 'tag';
-        el.textContent = tag;
-        tagsRow.appendChild(el);
+        if (group.length < 2) return;
+        group.sort((a, b) => Number(Boolean(copies[b].showcaseUrl)) - Number(Boolean(copies[a].showcaseUrl)));
+        const origin = copies[group[0]];
+        const lat0 = origin.lat;
+        const lng0 = origin.lng;
+        group.forEach((idx, n) => {
+          used.add(idx);
+          if (n === 0) return;
+          const angle = ((Math.PI * 2) * n) / group.length - Math.PI / 2;
+          const radius = 0.28;
+          copies[idx].lat = lat0 + radius * Math.cos(angle);
+          copies[idx].lng = lng0 + radius * Math.sin(angle);
+        });
       });
-
-      const footer = document.createElement('div');
-      footer.className = 'footer-row';
-
-      const target = document.createElement('span');
-      target.textContent = project.targetMarket || '';
-
-      const link = document.createElement('a');
-      link.className = 'pill-link';
-      link.href = project.showcaseUrl || '#';
-      link.target = '_blank';
-      link.rel = 'noopener';
-      link.onclick = e => e.stopPropagation();
-      link.innerHTML = `
-        <span>View project</span>
-        <svg viewBox="0 0 20 20" fill="none">
-          <path d="M5 10h7.5M10 5l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      `;
-
-      footer.appendChild(target);
-      footer.appendChild(link);
-
-      body.appendChild(titleRow);
-      body.appendChild(author);
-      body.appendChild(desc);
-      body.appendChild(tagsRow);
-      body.appendChild(footer);
-
-      card.appendChild(thumb);
-      card.appendChild(body);
-
-      return card;
+      return copies;
     }
 
-    (async function init() {
-      const container = document.getElementById('cards');
-      const empty = document.getElementById('empty');
-      const projects = await loadProjects();
+    const ALUMNI = spreadOverlappingPins(window.ALUMNI_MAP_DATA || []);
+    const mapRoot = document.getElementById("hero-map");
+    const LAT_PAD = 7;
 
-      if (!projects.length) {
-        empty.style.display = 'block';
+    function alumniCropBounds() {
+      const lats = ALUMNI.map((a) => Number(a.lat)).filter(Number.isFinite);
+      const south = Math.min(...lats) - LAT_PAD;
+      const north = Math.max(...lats) + LAT_PAD;
+      return L.latLngBounds([south, -168], [north, 178]);
+    }
+
+    function sizeHeroToCrop(bounds) {
+      const hero = document.querySelector(".hero");
+      if (window.matchMedia("(max-width: 800px)").matches) {
+        hero.style.height = "";
         return;
       }
+      const width = mapRoot.clientWidth || window.innerWidth * 0.75;
+      const nw = map.project(bounds.getNorthWest(), 3);
+      const se = map.project(bounds.getSouthEast(), 3);
+      const geoW = Math.abs(se.x - nw.x) || 1;
+      const geoH = Math.abs(se.y - nw.y) || 1;
+      const height = Math.max(420, width * (geoH / geoW));
+      hero.style.height = `${Math.round(height)}px`;
+    }
 
-      projects.forEach(p => container.appendChild(createCard(p)));
-    })();
+    const cropBounds = alumniCropBounds();
+    const map = L.map("map", {
+      center: cropBounds.getCenter(),
+      zoom: 3,
+      minZoom: 2,
+      maxZoom: 16,
+      worldCopyJump: true,
+      scrollWheelZoom: false,
+      dragging: true,
+      touchZoom: true,
+      zoomControl: true,
+      maxBounds: cropBounds.pad(0.06),
+      maxBoundsViscosity: 1
+    });
+    map.zoomControl.setPosition("topright");
+
+    const esriAttribution =
+      '&copy; <a href="https://www.esri.com/">Esri</a> &mdash; Esri, TomTom, Garmin, FAO, NOAA, USGS';
+    L.tileLayer(
+      "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}",
+      { attribution: esriAttribution, maxZoom: 16 }
+    ).addTo(map);
+    L.tileLayer(
+      "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}",
+      { attribution: "", maxZoom: 16 }
+    ).addTo(map);
+
+    const markers = [];
+    const PROJECT_Z = 6000;
+    const HOVER_Z = 20000;
+    function flagsShouldShow() {
+      return map.getZoom() >= FLAG_ZOOM;
+    }
+    function baseZIndex(alumni) {
+      return alumni && alumni.showcaseUrl ? PROJECT_Z : 0;
+    }
+    function setMarkerFlags(marker, on) {
+      const root = marker.getElement() && marker.getElement().querySelector(".alumni-marker");
+      if (!root) return;
+      const show = on || Boolean(marker._alumni && marker._alumni.showcaseUrl);
+      root.classList.toggle("flags-on", show);
+      root.classList.toggle("flags-off", !show);
+    }
+    function setMarkerHover(marker, hovered) {
+      marker.setZIndexOffset(hovered ? HOVER_Z : baseZIndex(marker._alumni));
+      const iconEl = marker.getElement();
+      if (iconEl) iconEl.classList.toggle("is-hovered", hovered);
+    }
+
+    function wireProjectOpener(marker, alumni) {
+      const root = marker.getElement();
+      if (!root || !alumni.showcaseUrl) return;
+      root.querySelectorAll("[data-project-open]").forEach((node) => {
+        if (node.dataset.wired === "1") return;
+        node.dataset.wired = "1";
+        L.DomEvent.disableClickPropagation(node);
+        L.DomEvent.on(node, "mousedown", L.DomEvent.stopPropagation);
+        L.DomEvent.on(node, "dblclick", L.DomEvent.stop);
+        L.DomEvent.on(node, "click", (ev) => {
+          L.DomEvent.stop(ev);
+          openProjectModal(alumni);
+        });
+      });
+    }
+
+    ALUMNI.forEach((a) => {
+      const hasProject = Boolean(a.showcaseUrl);
+      const icon = L.divIcon({
+        className: "alumni-leaflet-icon" + (hasProject ? " is-project" : ""),
+        html: flagHtml(a, flagsShouldShow() || hasProject),
+        iconSize: [18, 18],
+        iconAnchor: [9, 9]
+      });
+      const marker = L.marker([a.lat, a.lng], {
+        icon,
+        riseOnHover: false,
+        keyboard: true,
+        zIndexOffset: hasProject ? PROJECT_Z : 0
+      }).addTo(map);
+      marker._alumni = a;
+      marker.on("mouseover", () => {
+        setMarkerFlags(marker, true);
+        setMarkerHover(marker, true);
+      });
+      marker.on("mouseout", () => {
+        setMarkerFlags(marker, flagsShouldShow());
+        setMarkerHover(marker, false);
+      });
+      marker.on("click", (ev) => {
+        if (ev && ev.originalEvent) L.DomEvent.stop(ev.originalEvent);
+        setMapActive(true);
+        if (a.showcaseUrl) openProjectModal(a);
+        else setMarkerFlags(marker, true);
+      });
+      marker.on("add", () => wireProjectOpener(marker, a));
+      wireProjectOpener(marker, a);
+      markers.push(marker);
+    });
+
+    L.DomEvent.on(map.getContainer(), "click", (ev) => {
+      const opener = ev.target && ev.target.closest && ev.target.closest("[data-project-open]");
+      if (!opener) return;
+      const markerEl = opener.closest(".alumni-leaflet-icon");
+      const marker = markers.find((m) => m.getElement() === markerEl);
+      const alumni = marker && marker._alumni;
+      if (!alumni || !alumni.showcaseUrl) return;
+      L.DomEvent.stop(ev);
+      openProjectModal(alumni);
+    });
+
+    map.on("zoomend", () => {
+      const on = flagsShouldShow();
+      markers.forEach((m) => setMarkerFlags(m, on));
+    });
+
+    function setMapActive(on) {
+      mapRoot.classList.toggle("is-active", on);
+      if (on) map.scrollWheelZoom.enable();
+      else map.scrollWheelZoom.disable();
+      document.getElementById("map-hint").textContent = on
+        ? "Scroll to zoom · click outside the map to resume page scroll"
+        : "Click map to zoom · drag to pan";
+    }
+    mapRoot.addEventListener("click", () => setMapActive(true));
+    document.addEventListener("click", (e) => {
+      if (!mapRoot.contains(e.target)) setMapActive(false);
+    });
+    mapRoot.addEventListener("mouseleave", () => setMapActive(false));
+
+    function applyAlumniCrop() {
+      sizeHeroToCrop(cropBounds);
+      map.invalidateSize();
+      const minZ = map.getBoundsZoom(cropBounds, false, [16, 16]);
+      map.setMinZoom(minZ);
+      map.fitBounds(cropBounds, { animate: false, padding: [16, 16] });
+    }
+    requestAnimationFrame(() => requestAnimationFrame(applyAlumniCrop));
+    window.addEventListener("resize", applyAlumniCrop);
+
+    const projectCount = ALUMNI.filter((a) => a.showcaseUrl).length;
+    document.getElementById("map-sub").textContent =
+      `${alumniHeadcount(ALUMNI)} alumni · ${projectCount} published project${projectCount === 1 ? "" : "s"} · lime flags with an eye open the capstone`;
+
+    const legend = document.getElementById("legend");
+    const keys = [];
+    ALUMNI.forEach((a) => {
+      const key = legendKey(a);
+      if (!keys.includes(key)) keys.push(key);
+    });
+    legend.innerHTML = "<strong>Cohort</strong>";
+    keys.forEach((key) => {
+      const color = COHORT_COLORS[key] || "#e879f9";
+      const label = key === "corp" ? "Cognizant (private)" : key;
+      const row = document.createElement("div");
+      row.innerHTML = `<span class="swatch" style="background:${color}"></span>${escapeHtml(String(label))}`;
+      legend.appendChild(row);
+    });
+    const viewLine = document.createElement("div");
+    viewLine.className = "legend-view";
+    viewLine.innerHTML = `<span class="legend-eye">${EYE_SVG}</span>published project`;
+    legend.appendChild(viewLine);
+
+    const modal = document.getElementById("project-modal");
+    const modalTitle = document.getElementById("modal-title");
+    const modalMeta = document.getElementById("modal-meta");
+    const modalFrame = document.getElementById("modal-frame");
+    const modalOpen = document.getElementById("modal-open");
+
+    function openProjectModal(item) {
+      modalTitle.textContent = item.projectTitle || "Capstone project";
+      const bits = [item.authorName, item.projectCohort || item.cohort, item.company].filter(Boolean);
+      modalMeta.textContent = bits.join(" · ");
+      const pageUrl = resolveProjectUrl(item.showcaseUrl);
+      modalFrame.src = pageUrl;
+      modalOpen.href = pageUrl;
+      modal.classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+    function closeProjectModal() {
+      modal.classList.remove("open");
+      modalFrame.src = "about:blank";
+      document.body.style.overflow = "";
+    }
+    document.getElementById("modal-close").addEventListener("click", closeProjectModal);
+    modal.addEventListener("click", (e) => { if (e.target === modal) closeProjectModal(); });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeProjectModal(); });
+
+    function cleanReviewText(text) {
+      return String(text || "")
+        .replace(/^Here's the same review with every[\s\S]*?---\s*/i, "")
+        .trim();
+    }
+    function cleanTitle(title) {
+      return String(title || "").replace(/\s*·\s*None$/i, "").trim();
+    }
+
+    function wireNestedScroll(el) {
+      el.addEventListener("wheel", (e) => {
+        const atTop = el.scrollTop <= 0;
+        const atBottom = el.scrollTop + el.clientHeight >= el.scrollHeight - 1;
+        if ((e.deltaY < 0 && atTop) || (e.deltaY > 0 && atBottom)) return;
+        e.preventDefault();
+        el.scrollTop += e.deltaY;
+      }, { passive: false });
+    }
+
+    async function initReviews() {
+      const res = await fetch("assets/reviews/manifest.json");
+      const data = await res.json();
+      const reviews = (data.reviews || []).slice().reverse();
+      const grid = document.getElementById("reviews-grid");
+      reviews.forEach((r) => {
+        const card = document.createElement("article");
+        card.className = "review-card";
+        const text = cleanReviewText(r.review_text);
+        const title = cleanTitle(r.title);
+        const initial = (r.name || "?").trim().charAt(0).toUpperCase();
+        card.innerHTML = `
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">${escapeHtml(text)}</p>
+          <button type="button" class="review-more">Read more</button>
+          <div class="review-foot">
+            <div class="avatar">${escapeHtml(initial)}</div>
+            <div>
+              <div class="review-name">${escapeHtml(r.name)}</div>
+              <div class="review-title">${escapeHtml(title)}</div>
+            </div>
+            <div class="review-date">${escapeHtml(r.date)}</div>
+          </div>`;
+        const quote = card.querySelector(".review-quote");
+        const more = card.querySelector(".review-more");
+        requestAnimationFrame(() => {
+          if (quote.scrollHeight <= quote.clientHeight + 2) more.style.display = "none";
+        });
+        more.addEventListener("click", () => {
+          const open = card.classList.toggle("is-open");
+          more.textContent = open ? "Show less" : "Read more";
+        });
+        grid.appendChild(card);
+      });
+      wireNestedScroll(document.getElementById("reviews-scroller"));
+    }
+
+    async function initCapstones() {
+      const res = await fetch("projects.json", { cache: "no-store" });
+      const data = await res.json();
+      const projects = data.projects || [];
+      const grid = document.getElementById("cap-grid");
+      if (!projects.length) {
+        document.getElementById("cap-empty").style.display = "block";
+        return;
+      }
+      projects.forEach((p) => {
+        const card = document.createElement("article");
+        card.className = "cap-card";
+        card.innerHTML = `
+          <div class="cap-thumb">${p.heroImageUrl ? `<img src="${escapeHtml(resolveProjectUrl(p.heroImageUrl))}" alt="${escapeHtml(p.projectTitle)}" loading="lazy">` : ""}</div>
+          <div class="cap-body">
+            <div class="cap-kicker">${escapeHtml(p.cohort || "Cohort")}</div>
+            <h3>${escapeHtml(p.projectTitle || "Capstone")}</h3>
+            <p class="cap-author">by ${escapeHtml(p.authorName || "a student")}</p>
+            <p class="cap-desc">${escapeHtml(p.valueProposition || "")}</p>
+            <p class="cap-cta">View project →</p>
+          </div>`;
+        card.addEventListener("click", () => openProjectModal(p));
+        grid.appendChild(card);
+      });
+    }
+
+    async function initSyllabus() {
+      const res = await fetch("syllabus.json", { cache: "no-store" });
+      const data = await res.json();
+      document.getElementById("syllabus-lede").textContent = data.summary || "";
+      const root = document.getElementById("weeks");
+      (data.weeks || []).forEach((week, i) => {
+        const details = document.createElement("details");
+        details.className = "week";
+        if (i === 0) details.open = true;
+        const summary = document.createElement("summary");
+        summary.innerHTML = `<span>${escapeHtml(week.title)}</span>`;
+        const body = document.createElement("div");
+        body.className = "week-body";
+        (week.sessions || []).forEach((s) => {
+          const p = document.createElement("p");
+          p.className = "session";
+          const duration = s.duration ? ` <span class="duration">· ${escapeHtml(s.duration)}</span>` : "";
+          p.innerHTML = `<strong>${escapeHtml(s.title)}</strong>${duration}`;
+          body.appendChild(p);
+        });
+        const modules = document.createElement("ul");
+        modules.className = "modules";
+        (week.modules || []).forEach((m) => {
+          const li = document.createElement("li");
+          li.className = "module";
+          const heading = document.createElement("div");
+          heading.className = "module-title";
+          heading.textContent = m.title;
+          li.appendChild(heading);
+          const lessons = m.lessons || [];
+          if (lessons.length) {
+            const nested = document.createElement("ul");
+            nested.className = "lessons";
+            lessons.forEach((lesson) => {
+              const item = document.createElement("li");
+              const title = typeof lesson === "string" ? lesson : lesson.title;
+              const kind = typeof lesson === "string" ? "lesson" : (lesson.kind || "lesson");
+              item.textContent = title;
+              if (kind === "project") item.className = "lesson-project";
+              nested.appendChild(item);
+            });
+            li.appendChild(nested);
+          }
+          modules.appendChild(li);
+        });
+        body.appendChild(modules);
+        details.appendChild(summary);
+        details.appendChild(body);
+        root.appendChild(details);
+      });
+    }
+
+    initReviews().catch((err) => console.error(err));
+    initCapstones().catch((err) => console.error(err));
+    initSyllabus().catch((err) => console.error(err));
   </script>
 </body>
 </html>

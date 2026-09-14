@@ -1,17 +1,93 @@
 {
-    "projects": [
-      {
-        "projectTitle": "CareSync AI",
-        "authorName": "Matt Burton",
-        "authorGithub": "savant01",
-        "cohort": "Feb 2026",
-        "valueProposition": "AI-powered platform for coordinating senior care across medical, financial, and legal domains — with multi-agent intelligence that turns family conversations into structured, actionable health data.",
-        "targetMarket": "Senior living facilities and family caregivers",
-        "heroImageUrl": "projects/feb26-caresync-ai-matt-burton/hero.png",
-        "showcaseUrl": "projects/feb26-caresync-ai-matt-burton/index.html",
-        "techStack": ["Next.js", "FastAPI", "CrewAI", "PostgreSQL", "Docker", "Prisma"],
-        "tags": ["multi-agent", "healthcare", "Agentic Architect", "capstone"]
-      }
-    ]
-  }
-  
+  "projects": [
+    {
+      "projectTitle": "CareSync AI",
+      "authorName": "Matt Burton",
+      "authorGithub": "savant01",
+      "cohort": "Feb 2026",
+      "valueProposition": "AI-powered platform for coordinating senior care across medical, financial, and legal domains — with multi-agent intelligence that turns family conversations into structured, actionable health data.",
+      "targetMarket": "Senior living facilities and family caregivers",
+      "heroImageUrl": "projects/feb26-caresync-ai-matt-burton/hero.png",
+      "showcaseUrl": "projects/feb26-caresync-ai-matt-burton/index.html",
+      "techStack": ["Next.js", "FastAPI", "CrewAI", "PostgreSQL", "Docker", "Prisma"],
+      "tags": ["multi-agent", "healthcare", "Agentic Architect", "capstone"]
+    },
+    {
+      "projectTitle": "BAGANA AI",
+      "authorName": "Hansen Louisther",
+      "authorGithub": "louistherhansen",
+      "cohort": "Feb 2026",
+      "valueProposition": "AI-powered platform for KOL, influencer, and content creator agencies to manage content strategy at scale through integrated content planning, sentiment analysis, and market trend insights.",
+      "targetMarket": "Agency ops managers, content strategists, and campaign managers at KOL/influencer/content creator agencies",
+      "heroImageUrl": "projects/feb26-bagana-ai-louis-therhansen/hero.png",
+      "showcaseUrl": "projects/feb26-bagana-ai-louis-therhansen/index.html",
+      "techStack": ["Next.js", "FastAPI", "CrewAI", "PostgreSQL", "Docker", "TypeScript", "Tailwind CSS", "assistant-ui"],
+      "tags": ["multi-agent", "content-strategy", "Agentic Architect", "capstone", "AAMAD"]
+    },
+    {
+      "projectTitle": "AttendeeXRAY",
+      "authorName": "Courtlin Holt-Nguyen",
+      "authorGithub": "courtlin-holt-nguyen",
+      "cohort": "May 2026",
+      "valueProposition": "Turn conference agendas, attendee lists, and your goals into ranked, source-backed meeting targets and conversation-ready XRAY cards—so you know who to meet, why, and what to say before you arrive.",
+      "targetMarket": "B2B GTM and sales professionals, startup founders, and conference attendees who need evidence-backed networking prep",
+      "heroImageUrl": "projects/may26-attendeexray-courtlin-holt-nguyen/hero.png",
+      "showcaseUrl": "projects/may26-attendeexray-courtlin-holt-nguyen/index.html",
+      "techStack": ["React", "TypeScript", "Vite", "FastAPI", "CrewAI", "PostgreSQL", "Celery", "Redis", "Railway"],
+      "tags": ["multi-agent", "agentic-architect", "capstone", "conference-intelligence", "CrewAI"]
+    },
+    {
+      "projectTitle": "Agentic Support Platform",
+      "authorName": "Beatriz Costa",
+      "authorGithub": "BeatrizCoder",
+      "cohort": "May 2026",
+      "valueProposition": "Multi-agent AI customer support platform with CrewAI Flow, real-time external APIs, LLM-as-judge quality evaluation, and HITL operator dashboard",
+      "targetMarket": "E-commerce companies needing intelligent customer support automation",
+      "heroImageUrl": "projects/may26-agentic-support-platform-beatriz-costa/hero.png",
+      "showcaseUrl": "projects/may26-agentic-support-platform-beatriz-costa/index.html",
+      "techStack": [
+        "FastAPI",
+        "CrewAI Flow",
+        "Claude Haiku 4.5",
+        "Claude Sonnet 4.6",
+        "Neon PostgreSQL",
+        "Vanilla JS",
+        "Railway",
+        "Vercel"
+      ],
+      "tags": [
+        "multi-agent",
+        "customer-support",
+        "crewai-flow",
+        "llm-as-judge",
+        "hitl",
+        "fastapi",
+        "capstone"
+      ]
+    },
+    {
+      "projectTitle": "Multi-Agent GitHub Orchestration Crew",
+      "authorName": "Gabriel Ferreres",
+      "authorGithub": "gabrieltp",
+      "cohort": "May 2026",
+      "valueProposition": "An AI-driven project management assistant that autonomously translates meeting minutes into GitHub Issues, updates project boards, and drafts initial feature code.",
+      "targetMarket": "Agile software development teams utilizing GitHub Projects and Issues",
+      "heroImageUrl": "projects/may26-github-crew-gabriel-ferreres/hero.png",
+      "showcaseUrl": "projects/may26-github-crew-gabriel-ferreres/index.html",
+      "techStack": ["React", "FastAPI", "CrewAI", "GitHub API", "Railway"],
+      "tags": ["multi-agent", "agentic-architect", "capstone", "github-orchestration"]
+    },
+    {
+      "projectTitle": "AASRA — AI-Supported Recruitment Assistant",
+      "authorName": "Alberto Domingo",
+      "authorGithub": "adomingoa",
+      "cohort": "June 2026",
+      "valueProposition": "AASRA automates evidence-based recruitment campaigns for staff hiring and contractor selection: a 17-agent CrewAI pipeline ingests documents, extracts requirements, assesses compliance, validates claims via OSINT, flags integrity risks, ranks candidates, and produces board-ready reports — with human-in-the-loop gates and full audit traceability.",
+      "targetMarket": "Recruitment board chairs, HR evaluators, and recruitment operations staff in document-heavy staff and contractor selection campaigns",
+      "heroImageUrl": "projects/jun26-aasra-alberto-domingo/hero.png",
+      "showcaseUrl": "projects/jun26-aasra-alberto-domingo/index.html",
+      "techStack": ["React", "TypeScript", "Vite", "FastAPI", "CrewAI", "CrewAI Flow", "SQLite", "Docker", "Render", "Vercel", "Cursor"],
+      "tags": ["multi-agent", "agentic-architect", "capstone", "recruitment", "CrewAI"]
+    }
+  ]
+}

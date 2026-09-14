@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AASRA – Agentic Architect Capstone</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+      margin: 0;
+      padding: 24px;
+      background: #020617;
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    h1, h2 {
+      color: #f9fafb;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    h2 {
+      margin-top: 1.8rem;
+      margin-bottom: 0.4rem;
+    }
+    p {
+      margin: 0.3rem 0;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 12px;
+      margin: 0.75rem 0;
+      border: 1px solid #1f2937;
+    }
+    ul { padding-left: 1.2rem; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.5rem;
+    }
+    th, td {
+      border: 1px solid #1f2937;
+      padding: 6px 8px;
+      font-size: 0.9rem;
+      vertical-align: top;
+    }
+    th {
+      background: #020617;
+    }
+    .meta {
+      color: #9ca3af;
+      font-size: 0.9rem;
+      margin-bottom: 0.8rem;
+    }
+    .pill {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 3px 9px;
+      border: 1px solid #1f2937;
+      font-size: 0.8rem;
+      color: #9ca3af;
+      margin-right: 6px;
+      margin-bottom: 4px;
+    }
+    a {
+      color: #93c5fd;
+    }
+    code {
+      font-size: 0.9em;
+      color: #cbd5e1;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>AASRA — AI-Supported Recruitment Assistant</h1>
+      <p class="meta">
+        Built by <strong>Alberto Domingo</strong> –
+        Capstone for "Become an Agentic Architect / Mastering Multiagent AI Systems with CrewAI".
+      </p>
+      <p>
+        <span class="pill">June 2026</span>
+        <span class="pill">CrewAI Flow</span>
+        <span class="pill">17 agents</span>
+        <span class="pill">FastAPI</span>
+        <span class="pill">React 19</span>
+        <span class="pill">Render + Vercel</span>
+      </p>
+      <p>AASRA automates evidence-based recruitment campaigns for staff hiring and contractor selection: a 17-agent CrewAI pipeline ingests documents, extracts requirements, assesses compliance, validates claims via OSINT, flags integrity risks, ranks candidates, and produces board-ready reports — with human-in-the-loop gates and full audit traceability.</p>
+      <p>
+        <a href="https://github.com/adomingoa" target="_blank" rel="noopener noreferrer">GitHub →</a>
+      </p>
+      <img src="hero.png" alt="Hero screenshot of AASRA campaign dashboard" />
+    </header>
+
+    <section>
+      <h2>Problem &amp; Target Users</h2>
+      <p>Large organizations running staff vacancies and contractor procurements face document-heavy selection processes: job descriptions, statements of work, resumes, compliance matrices, and supporting evidence must be reviewed consistently, defensibly, and under audit pressure.</p>
+      <p>AASRA targets <strong>recruitment board chairs, HR evaluators, and recruitment operations staff</strong> who need more than generic AI summaries — they need structured C/PC/NC compliance tables, OSINT validation, integrity-risk indicators, deterministic contractor scoring, and ranked shortlists that humans can trust and defend.</p>
+    </section>
+
+    <section>
+      <h2>Solution Overview</h2>
+      <p>AASRA orchestrates a full recruitment campaign lifecycle through a <strong>CrewAI Flow</strong> (<code>CampaignFlow</code>): documents are classified and ingested, requirements or scoring matrices are extracted and QA-validated, a human board confirms the framework, then each candidate runs through a sequential specialist pipeline ending in chairperson consolidation, reports, and interview packages. Campaign closure produces deterministic rankings, a synthesis report, organizational knowledge persistence, and an immutable audit export.</p>
+      <p>A React dashboard gives operators real-time visibility via SSE — campaign setup, a live 17-agent pipeline diagram, candidate tables, activity logs, report modals, and dedicated observability and efficiency views. The system separates LLM narrative work from deterministic compliance and scoring rules so official points and pass/fail outcomes are never silently overridden by model judgment.</p>
+    </section>
+
+    <section>
+      <h2>Key Features</h2>
+      <ul>
+        <li><strong>Dual campaign modes</strong> — Staff selection (JD → RequirementList) and contractor selection (SoW → ScoringMatrix) with automatic routing</li>
+        <li><strong>Document intake pipeline</strong> — Classify, deduplicate, OCR-flag, and structure DOC/DOCX/PDF artifacts before analysis</li>
+        <li><strong>Structured compliance assessment</strong> — Staff: flat StaffComplianceResult with C/PC/NC per requirement; Contractor: deterministic matrix scoring with LLM-only narrative support</li>
+        <li><strong>OSINT claim validation</strong> — Public-source research with identity anchors, confidence scoring, and policy-governed source catalog</li>
+        <li><strong>Integrity-risk analysis</strong> — Fraud analyst flags timeline gaps, unsupported claims, and contradictions without alleging fraud</li>
+        <li><strong>Career intelligence &amp; ranking</strong> — Aseptic career analysis plus deterministic cross-candidate ranking with tie-break rules</li>
+        <li><strong>Human-in-the-loop framework gate</strong> — Board/evaluator confirms extracted requirements or scoring matrix before candidate processing</li>
+        <li><strong>Live agent pipeline UI</strong> — React dashboard with SSE-driven progress, per-candidate agent diagram, activity logs, and report modals</li>
+        <li><strong>Observability &amp; cost tracking</strong> — Token usage, run steps, failures/retries, and CrewAI AMP tracing integration</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Multi-agent AI Crew</h2>
+      <p>AASRA implements a <strong>17-agent catalog</strong> orchestrated by CrewAI Flow: classify → extract framework → HITL confirm → per-candidate analysis → rank → campaign reports → knowledge persistence → audit finalization.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Agent</th>
+            <th>Role</th>
+            <th>Tools / Integrations</th>
+            <th>Trigger</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Workflow Manager</td>
+            <td>Campaign queue, routing, spend alerts</td>
+            <td>Workflow queue, SSE events</td>
+            <td>Campaign start / flow kickoff</td>
+          </tr>
+          <tr>
+            <td>Document Classifier</td>
+            <td>Ingest, classify, deduplicate documents</td>
+            <td>File store, OCR flags</td>
+            <td>After campaign init</td>
+          </tr>
+          <tr>
+            <td>Requirement Extractor (Staff)</td>
+            <td>Extract JD requirements into RequirementList</td>
+            <td>LLM + structured output</td>
+            <td>Staff campaign route</td>
+          </tr>
+          <tr>
+            <td>Requirement Extractor (Contractor)</td>
+            <td>Extract SoW scoring matrix</td>
+            <td>LLM + structured output</td>
+            <td>Contractor campaign route</td>
+          </tr>
+          <tr>
+            <td>QA Agent</td>
+            <td>Schema validation, evidence integrity gates</td>
+            <td>Deterministic recomputation</td>
+            <td>Framework + per-candidate pre-consolidation</td>
+          </tr>
+          <tr>
+            <td>Resume Analyst</td>
+            <td>Evidence-linked candidate profile</td>
+            <td>LLM + OCR text</td>
+            <td>Per candidate</td>
+          </tr>
+          <tr>
+            <td>Compliance Analyst (Staff)</td>
+            <td>C/PC/NC assessment per requirement</td>
+            <td>LLM + evidence map</td>
+            <td>After resume analysis</td>
+          </tr>
+          <tr>
+            <td>Compliance Analyst (Contractor)</td>
+            <td>Matrix scoring via rule engine</td>
+            <td>Deterministic scorer + LLM narrative</td>
+            <td>After resume analysis</td>
+          </tr>
+          <tr>
+            <td>OSINT Analyst</td>
+            <td>Public-source claim validation</td>
+            <td>Serper, fetch_public_source, policy catalog</td>
+            <td>After compliance</td>
+          </tr>
+          <tr>
+            <td>Fraud Analyst</td>
+            <td>Integrity-risk indicators</td>
+            <td>Prior agent outputs</td>
+            <td>After OSINT</td>
+          </tr>
+          <tr>
+            <td>Career Analyst</td>
+            <td>Retrospective + prospective career intelligence</td>
+            <td>LLM structured output</td>
+            <td>After fraud</td>
+          </tr>
+          <tr>
+            <td>Chairperson</td>
+            <td>Post-QA consolidation &amp; board recommendation</td>
+            <td>QA-validated artifacts</td>
+            <td>After QA</td>
+          </tr>
+          <tr>
+            <td>Report Agent</td>
+            <td>Board-ready candidate &amp; campaign reports</td>
+            <td>Markdown export</td>
+            <td>After chairperson / closure</td>
+          </tr>
+          <tr>
+            <td>Interview Agent</td>
+            <td>Tailored interview packages &amp; rubrics</td>
+            <td>Requirement links, evidence gaps</td>
+            <td>Post-QA</td>
+          </tr>
+          <tr>
+            <td>Ranking Agent</td>
+            <td>Deterministic cross-candidate ordering</td>
+            <td>Tie-break rules, compliance scores</td>
+            <td>Campaign closure</td>
+          </tr>
+          <tr>
+            <td>Knowledge Manager</td>
+            <td>Campaign-scoped organizational memory</td>
+            <td>SQLite persistence</td>
+            <td>Post campaign report</td>
+          </tr>
+          <tr>
+            <td>Audit Logger</td>
+            <td>Immutable provenance &amp; audit export</td>
+            <td>Append-only audit trail</td>
+            <td>Campaign finalization</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Technical Architecture</h2>
+      <ul>
+        <li><strong>Frontend</strong> — React 19, Vite 6, TypeScript; campaign setup, candidate table, agent pipeline diagram, observability and efficiency pages</li>
+        <li><strong>Backend</strong> — FastAPI, Uvicorn, CrewAI (<code>@CrewBase</code> + <code>CampaignFlow</code>)</li>
+        <li><strong>Data / storage</strong> — SQLite index + local filesystem (<code>AASRA_RECRUITMENT_ROOT</code>); cloud demo uses ephemeral <code>/data</code> with synthetic pilot fixtures</li>
+        <li><strong>Integrations</strong> — OpenAI LLMs, Serper (OSINT search), SSE event bus, CrewAI AMP tracing, GitHub Actions CI</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Deployment</h2>
+      <p>
+        <strong>Local:</strong> Docker Compose (<code>.\scripts\start-aasra-local.ps1</code>) or native dev (<code>uv run run_api</code> + <code>npm run dev</code>) → http://localhost:5173<br />
+        <strong>Cloud demo:</strong> Render (FastAPI backend, Docker) + Vercel (static React UI). CI runs backend pytest, frontend build, and Docker image builds on every push to <code>main</code>.
+      </p>
+      <p>Cloud deployments use synthetic demo data only — no live recruitment PII.</p>
+    </section>
+
+    <section>
+      <h2>Screenshots</h2>
+      <p><strong>Agent Pipeline</strong> — Live 17-agent Setup → Candidates → Closure diagram with per-step status.</p>
+      <img src="screen-1.png" alt="AASRA agent pipeline diagram showing 17-agent workflow" />
+
+      <p><strong>Campaign Setup</strong> — Staff/contractor campaign configuration with local folder paths and validation.</p>
+      <img src="screen-2.png" alt="Campaign setup form with staff hiring configuration" />
+
+      <p><strong>Observability Dashboard</strong> — Latency, success rate, token cost, and run-level metrics with CrewAI AMP integration.</p>
+      <img src="screen-3.png" alt="Observability dashboard with local metrics and charts" />
+
+      <p><strong>Efficiency View</strong> — Campaign efficiency analytics for operator review.</p>
+      <img src="screen-4.png" alt="Efficiency analytics page" />
+
+      <p><strong>Efficiency Dashboard -</strong> Overall campaign statistics.</p>
+      <img src="screen-5.png" alt="Efficiency Dashboard - overall campaign statistics" />
+
+      <p><strong>Efficiency Dashboard -</strong> Agent's view, includes details for agents and candidates. Please note that the OSINT agent did not find any worthy results and failed, but still spent 0.38 cents of a dollar to run. The most expensive agent for this campaign was the fraud analyst, that spent 0.76 cents of a dollar. All in all, running the hiring campaign took $3 cents for the candidate evaluation, and $1 cent for the campaign setup (workflow management, document classifier, requirement extractor, quality analysis) and closure (ranking of candidates, report generation, knowledge management and audit).</p>
+      <img src="screen-6.png" alt="Efficiency Dashboard - agent view with agent and candidate details" />
+    </section>
+
+    <section>
+      <h2>My Role &amp; Learnings as Agentic Architect</h2>
+      <ul>
+        <li>Designed a 17-agent recruitment catalog with strict role boundaries — extraction agents never score, compliance agents never rank, and the ranking agent never overrides deterministic rule-engine results.</li>
+        <li>Orchestrated end-to-end campaign lifecycle with CrewAI Flow (<code>CampaignFlow</code>), combining YAML-defined agents/tasks, Pydantic structured outputs, guardrails, and API-driven human-in-the-loop gates.</li>
+        <li>Separated LLM-assisted narrative from deterministic procurement scoring — official contractor matrix points come only from the rule engine, with the LLM limited to evidence summaries and reviewer attention points.</li>
+        <li>Built a full-stack operator experience: SSE real-time progress, per-candidate agent pipeline visualization, observability metrics, and board-ready markdown report export with audit traceability.</li>
+        <li>Shipped production-minded CI/CD — GitHub Actions for tests and builds, Docker local/cloud parity, Render + Vercel deployment guides, and cloud demo security constraints (synthetic data only).</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

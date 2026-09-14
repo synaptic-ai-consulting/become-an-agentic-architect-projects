@@ -1,0 +1,290 @@
+{
+  "source": "https://maven.com/carmelo-iaria/agentic-architect#course-reviews",
+  "captured": "2026-09-14",
+  "count": 28,
+  "stage": "R — Referrals (post-course alumni proof)",
+  "note": "Each PNG is a cropped Maven Alumni Reviews card from the expanded right-side panel, matching the published card layout (including Read more when the UI truncates).",
+  "reviews": [
+    {
+      "index": 1,
+      "file": "01-matt-2025-12-12.png",
+      "name": "Matt",
+      "title": "Founder · SAVANT-AI",
+      "date": "Dec 12, 2025",
+      "badge": "LIVE COHORT",
+      "truncated_in_ui": true,
+      "review_text": "Five stars for course logic, course structure, and course value, Carmelo is committed to your success in building a software product from concept to deployment. He is very experienced and has gone deep in multi agent systems. This could be the most important course you take in 2026. For me, it was the most important course I took in 2025. It has changed the trajectory of my company."
+    },
+    {
+      "index": 2,
+      "file": "02-roger-2025-12-14.png",
+      "name": "Roger",
+      "title": "Director · Subzero Software",
+      "date": "Dec 14, 2025",
+      "badge": "LIVE COHORT",
+      "truncated_in_ui": false,
+      "review_text": "During the course Carmelo demonstrated his breadth and depth of knowledge in building agentic systems. He provides a structured approach that can be reused across most applications. I would highly recommend to others."
+    },
+    {
+      "index": 3,
+      "file": "03-dedeepya-2025-12-15.png",
+      "name": "Dedeepya",
+      "title": "Senior iOS Engineer · Peapod Digital Labs",
+      "date": "Dec 15, 2025",
+      "badge": "LIVE COHORT",
+      "truncated_in_ui": true,
+      "review_text": "This Agentic AI course using the AAMAD framework provided an excellent balance of theory and hands-on learning. The explanations in each chapter were structured and easy to follow, which made learning advanced concepts feel simple for me. The one-to-one mentoring sessions, group discussions, and peer work reviews added great value to my learning experience. Carmelo was extremely patient and supportive, making complex concepts easy to understand. After finishing this course, it gave me the confidence to understand and work with AI tools without feeling overwhelmed. I highly recommend this course to anyone interested in Agentic AI."
+    },
+    {
+      "index": 4,
+      "file": "04-hansen-2026-02-21.png",
+      "name": "Hansen",
+      "title": "AI Enthusiasm · Bagana AI",
+      "date": "Feb 21, 2026",
+      "badge": "LIVE COHORT",
+      "truncated_in_ui": true,
+      "review_text": "The Become an Agentic Architect course by Carmelo Iaria is a mid-to-advanced level program that is highly aligned with modern AI trends, focusing on designing production-ready multi-agent systems. The content is practical and strategic, making it ideal for engineers or professionals who want to transition from pure coding to agent-based AI architecture. It is not suitable for beginners, but it offers strong value for advancing a career in Agentic AI."
+    },
+    {
+      "index": 5,
+      "file": "05-husam-2026-04-03.png",
+      "name": "Husam",
+      "title": "IT · Project Manager",
+      "date": "Apr 3, 2026",
+      "badge": "LIVE COHORT",
+      "truncated_in_ui": false,
+      "review_text": "The course is very nice engagement into the agentic world with an amazing framework that scores very well compared to famous frameworks and delivered professionally and diligently by amazing instructor. Excellent Course."
+    },
+    {
+      "index": 6,
+      "file": "06-ilona-2026-04-03.png",
+      "name": "Ilona",
+      "title": "Digital Health Expert · TK",
+      "date": "Apr 3, 2026",
+      "badge": "LIVE COHORT",
+      "truncated_in_ui": true,
+      "review_text": "Excellent Framework for Modern Software Development I found the Agentic Architect course's presented framework to be exceptionally well-suited for leveraging new dynamic concepts in software product development as a \"helpful assistant.\" Combined with experience from developing production-grade software products, it provides a professional structure that's qualified to be highly productive. GenAI agents take on key roles in software development, delivering solid baseline results while you retain full control—and still have fun with the coding. It's an ideal bridge from the classical world into these new dynamic times."
+    },
+    {
+      "index": 7,
+      "file": "07-alexa-2026-04-05.png",
+      "name": "Alexa",
+      "title": "Lead UX Designer · Caseware",
+      "date": "Apr 5, 2026",
+      "badge": "LIVE COHORT",
+      "truncated_in_ui": true,
+      "review_text": "Really enjoyed the Agentic Architect course, it genuinely opened up a whole new world for me as someone coming from a non-traditional coding background. It helped me think beyond interfaces and into systems, agents, and how work actually gets done with AI. I especially appreciated how practical and applicable the content was—I can already see how to bring this into my day-to-day work. Highly recommend for designers, PMs, or anyone curious about building with AI in a more structured way."
+    },
+    {
+      "index": 8,
+      "file": "08-sathyan-2026-04-05.png",
+      "name": "Sathyan",
+      "title": "Group PM · AT&T",
+      "date": "Apr 5, 2026",
+      "badge": "LIVE COHORT",
+      "truncated_in_ui": false,
+      "review_text": "For anyone wondering how to build their AI products better, I would highly recommend this course. The concepts taught here make the difference between building a product that works and one that doesn't"
+    },
+    {
+      "index": 9,
+      "file": "09-mel-2026-04-19.png",
+      "name": "Mel",
+      "title": "Director of Innovation · Greenlight Consulting",
+      "date": "Apr 19, 2026",
+      "badge": "LIVE COHORT",
+      "truncated_in_ui": true,
+      "review_text": "Highly recommend this course for anyone wanting to experience and understand what it's like to code using agents to support you in building what you envision. Carmelo's AAMAD framework is a step-by-step approach to translating a PRD into a working full-stack Crew AI agentic application. There's a lot of material covered, but you can always return for a deeper dive when you have more time. The framework itself is very structured: you build step by step using agents that take on the personas of a software delivery team. I'd definitely suggest completing the pre-course work — it prepares you well for the methodology and you learn how to use the agents and prompts within the AAMAD framework. I'd also recommend fully fleshing out your capstone PRD and MVP upfront so you don't spend too much time reworking things as you go. I haven't coded in a very long time, and I'm actually finding it very enjoyable now to build using AI. This course gave me a much better understanding of the shift in mindset required — and where to place your time and effort to get the most out of coding agents. If you have the time, you can even take your app all the way to production. Highly recommend. Thank you so much, Carmelo, for a really great learning experience!"
+    },
+    {
+      "index": 10,
+      "file": "10-beatriz-2026-05-23.png",
+      "name": "Beatriz",
+      "title": "Project Leader · Cognizant",
+      "date": "May 23, 2026",
+      "badge": "LIVE COHORT",
+      "truncated_in_ui": false,
+      "review_text": "This course was a complete mind-shifter for me. Understanding the core mechanics of how to build and connect agents has been empowering. I’m leaving with a portfolio of new ideas and the exact tools I need to build them out myself!"
+    },
+    {
+      "index": 11,
+      "file": "11-olya-2026-05-23.png",
+      "name": "Olya",
+      "title": "Adobe Workfront Architect · WorkFocus.io",
+      "date": "May 23, 2026",
+      "badge": "LIVE COHORT",
+      "truncated_in_ui": true,
+      "review_text": "The Agentic Architect class is a very structured, highly detailed, and inspirational experience. The instructor is a real practitioner, always ready to assist and provide invaluable advice. The group progressed nicely throughout the course, first enjoying the pre-course materials, which allowed participants to evaluate whether they wanted to move forward with the more robust build and hands-on exercises. The group experience and learning dynamic were amazing! I attended most of the lessons and participated in the majority of the discussions. I gained invaluable experience and extensive knowledge in this domain, developed a deeper understanding of agentic architecture challenges, explored ready-to-apply strategies, and earned practical skills. Thank you so much for this unforgettable experience!"
+    },
+    {
+      "index": 12,
+      "file": "12-t-2026-05-27.png",
+      "name": "T",
+      "title": "AIE · Self-empl",
+      "date": "May 27, 2026",
+      "badge": "LIVE COHORT",
+      "truncated_in_ui": false,
+      "review_text": "I gained fresh ideas, a solid basis, and a great deal of drive from the course. I am very grateful for the chance to accompany you on this adventure. Once again, I want to thank you for this wonderful experience!"
+    },
+    {
+      "index": 13,
+      "file": "13-mary-2026-05-31.png",
+      "name": "Mary",
+      "title": "Product Line Manager, AI · UserTesting",
+      "date": "May 31, 2026",
+      "badge": "LIVE COHORT",
+      "truncated_in_ui": true,
+      "review_text": "Learning the AAMAD framework for development, along with beginner friendly AI architecture frameworks has been a game changer as a product manager. Not only do we get hangs on experience with eval and logging techniques, but you learn best practices for giving your agents the context needed to build a production AI product."
+    },
+    {
+      "index": 14,
+      "file": "14-feitosa-2026-06-02.png",
+      "name": "Feitosa",
+      "title": "Senior Engineering Manager · Cognizant",
+      "date": "June 2, 2026",
+      "badge": "LIVE COHORT",
+      "truncated_in_ui": false,
+      "review_text": "Excellent teaching methods and content."
+    },
+    {
+      "index": 15,
+      "file": "15-gabriel-2026-06-05.png",
+      "name": "Gabriel",
+      "title": "Sr Developer Analyst · Cognizant",
+      "date": "June 5, 2026",
+      "badge": "LIVE COHORT",
+      "truncated_in_ui": false,
+      "review_text": "Great course to understand how AAMAD + CrewAI work together. Carmelo is a nice guy that tried to help us in each step of the course. I missed some deployment material and troubleshooting, but it was a great course overall."
+    },
+    {
+      "index": 16,
+      "file": "16-antonio-2026-06-07.png",
+      "name": "Antonio",
+      "title": "Senior Associate · Cognizant",
+      "date": "June 7, 2026",
+      "badge": "LIVE COHORT",
+      "truncated_in_ui": false,
+      "review_text": "An excellent methodology for managing project context, enabling not only increased productivity but also resource savings."
+    },
+    {
+      "index": 17,
+      "file": "17-lucioney-2026-06-08.png",
+      "name": "Lucioney",
+      "title": "Developer · Cognizant",
+      "date": "June 8, 2026",
+      "badge": "LIVE COHORT",
+      "truncated_in_ui": false,
+      "review_text": "Muito bom. Aborda vários aspectos do desenvolvimento usando agentes para a construção da aplicação e para rodar a aplicação(Crew). O AAMAD define agentes de desenvolvimento e passo a passo documentado para o próximo agente no fluxo."
+    },
+    {
+      "index": 18,
+      "file": "18-mydeen-2026-06-22.png",
+      "name": "Mydeen",
+      "title": "Program Manager · Q-Dynamix.AI",
+      "date": "June 22, 2026",
+      "badge": "LIVE COHORT",
+      "truncated_in_ui": false,
+      "review_text": "Pushes you to think in terms of Agents and orchestration of agents!"
+    },
+    {
+      "index": 19,
+      "file": "19-alberto-2026-07-10.png",
+      "name": "Alberto",
+      "title": "Cyberspace Technical Director · NATO",
+      "date": "July 10, 2026",
+      "badge": "LIVE COHORT",
+      "truncated_in_ui": true,
+      "review_text": "I have to say that this has been a wonderful journey. Many years ago, I developed safety-critical software using the waterfall approach and every possible engineering safeguard. On average, we produced around 8–10 lines of production code per day—including requirements, design, implementation, integration, testing, and documentation. A year ago, I started experimenting with vibe coding. It felt like stepping into a completely different world—a genuine paradigm shift that challenged everything I had learned about software engineering. Then AAMAD came to the rescue. AAMAD allows me to take full advantage of today's AI-assisted development tools while providing the process, structure, and engineering discipline needed to stay in control. It gives you visibility over the development process, the architecture, and the final product. Once you understand the underlying software engineering principles, AI stops feeling like a black box and becomes a powerful engineering tool. The definition of the AAMAD agents is particularly well thought out, enabling extremely rapid development without sacrificing structure or quality. The structure and pace of the course are equally impressive. Each phase builds naturally on the previous one, and you are encouraged to pause at key milestones to validate your work before moving forward. Along the way, you gain practical experience with concepts that have become essential for modern software engineering, including CI/CD, cloud deployment, observability, performance optimization, and token and cost management. This is not a course made of slides, nor one designed simply to tick a training box. It is a course to learn by building, to practice on a meaningful real-world project, and to grow as a software engineer. Looking back, the time, effort, and resources invested have been more than worthwhile. My sincere thanks and congratulations go to Carmelo Iaria for continuously keeping the learning materials current and relevant, for his daily engagement with the students, and for the encouragement, flexibility, and support he provided during the many occasions when I was unable to attend the live sessions. I also greatly appreciate the remarkable amount of additional material he shares with us beyond what was already a comprehensive course."
+    },
+    {
+      "index": 20,
+      "file": "20-mohit-2026-07-10.png",
+      "name": "Mohit",
+      "title": "Sr Product Manager · Experian",
+      "date": "July 10, 2026",
+      "badge": "LIVE COHORT",
+      "truncated_in_ui": false,
+      "review_text": "Good Course Overall!"
+    },
+    {
+      "index": 21,
+      "file": "21-jorge-2026-07-13.png",
+      "name": "Jorge",
+      "title": "AI Software Engineer · Marisa Peer",
+      "date": "July 13, 2026",
+      "badge": "LIVE COHORT",
+      "truncated_in_ui": false,
+      "review_text": "This is a very useful and present course, specially now that LLM capabilities are improving every week, as AI engineers we have to learn how to work agentically, to keep up with the trends"
+    },
+    {
+      "index": 22,
+      "file": "22-seung-hee-2026-07-19.png",
+      "name": "Seung Hee",
+      "title": "AI Solutions Delivery Manager · MAPFRE",
+      "date": "July 19, 2026",
+      "badge": "LIVE COHORT",
+      "truncated_in_ui": true,
+      "review_text": "This is a true hands-on course where you would be expected to spend time on your own to progress. Carmelo provides a lot of helpful materials at each phase of the course, but you would need to commit your time and effort seriously if you really want to learn something. You also get to meet fellow students from various backgrounds and it was helpful to see their work along the way."
+    },
+    {
+      "index": 23,
+      "file": "23-muthu-2026-07-20.png",
+      "name": "Muthu",
+      "title": "Architect · None",
+      "date": "July 20, 2026",
+      "badge": "LIVE COHORT",
+      "truncated_in_ui": false,
+      "review_text": "Good course to learn how to design scalable, production-grade multi-agent systems, instead of just writing basic prompt scripts."
+    },
+    {
+      "index": 24,
+      "file": "24-aprill-2026-09-11.png",
+      "name": "Aprill",
+      "title": "Sr. UX Researcher · Cisco Systems, Inc.",
+      "date": "Sep 11, 2026",
+      "badge": "LIVE COHORT",
+      "truncated_in_ui": true,
+      "review_text": "Here's the same review with every `—` replaced: --- Carmelo Iaria's feedback on my capstone (an onboarding-plan tool built with CrewAI) was some of the most precise, actionable guidance I've gotten in a technical course. Early on, he caught that my architecture was solid but my task catalog was empty, and instead of just flagging it, he explained exactly why that mattered (\"don't let the AI invent your company's real onboarding tasks\") and gave me a clear, scoped next step: one role, one real catalog, one working demo before anything else.* *Throughout the build, his check-ins came at exactly the right moments, pushing for a UI when the CLI-only scope needed to grow, and trusting the architecture we'd already locked in rather than second-guessing it later. He has a rare combination of deep technical knowledge (CrewAI, agent architectures, production patterns) and genuine patience for students working through unfamiliar tools for the first time. I came out of this course with a fully working, tested, multi-agent application, and a much clearer sense of how to reason about AI system design, not just how to prompt an AI to build something. I HIGHLY recommend this course for others especially for people like me without a technical background [I am a UX Researcher not an engineer]."
+    },
+    {
+      "index": 25,
+      "file": "25-nick-2026-09-12.png",
+      "name": "Nick",
+      "title": "Client Platform Engineer · docusign",
+      "date": "Sep 12, 2026",
+      "badge": "LIVE COHORT",
+      "truncated_in_ui": false,
+      "review_text": "The hardest part of delivering an agentic workflow is ensuring your vision aligns with the code. Carmelo's class taught me how to break down and develop my ideas sequentially using his clear methodology. The knowledge I gained will definitely shape my future projects."
+    },
+    {
+      "index": 26,
+      "file": "26-sunil-2026-09-12.png",
+      "name": "Sunil",
+      "title": "CTO · Mphasis",
+      "date": "Sep 12, 2026",
+      "badge": "LIVE COHORT",
+      "truncated_in_ui": false,
+      "review_text": "Deep, genuinely hands-on course on agentic architecture. It goes well beyond theory into real multi-agent design, orchestration, and production concerns like observability and CI/CD. I applied it directly to a multi-agent project of my own and it held up. Highly recommended."
+    },
+    {
+      "index": 27,
+      "file": "27-raj-2026-09-13.png",
+      "name": "Raj",
+      "title": "VP of Analytics · Fintech",
+      "date": "Sep 13, 2026",
+      "badge": "LIVE COHORT",
+      "truncated_in_ui": true,
+      "review_text": "This was a great course. The Carmelo's AAMAD framework was an excellent way to make the transition from traditional software development to the agentic future. It was great to build something hands on and learn new skills. I also appreciate Carmelo being available for 1x1 meetings since I could not make it to most of the live classes. Thanks Carmelo!"
+    },
+    {
+      "index": 28,
+      "file": "28-fabrizio-vasquez-2026-09-14.png",
+      "name": "Fabrizio Vásquez",
+      "title": "Data Scientist · MiBanco",
+      "date": "Sep 14, 2026",
+      "badge": "LIVE COHORT",
+      "truncated_in_ui": false,
+      "review_text": "The whole course experience has been excellent. I learned a lot, especially about CrewAI and agentic architecture. Learning to approach problems in different ways, while balancing complexity and precision, was a real mindset shift for me. I also really valued the integration and testing process to ensure consistent results. Due to some time constraints, I had to postpone the final part, but I'll be coming back to complete it with a lot of enthusiasm. I'm very grateful for the experience and look forward to completing the course."
+    }
+  ],
+  "ordering": "Chronological by review date received (oldest = 01, newest = 28)."
+}

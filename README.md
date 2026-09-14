@@ -1,26 +1,35 @@
-# Become an Agentic Architect – Capstone Projects
+# Become an Agentic Architect – Course Page
 
-This repository hosts the public **Wall of Fame** for capstone projects built in Carmelo Iaria’s Maven course  
-[“Become an Agentic Architect / Mastering Multiagent AI Systems with CrewAI”][course]. Each card in the gallery links to a full showcase page with screenshots, architecture, and the multi‑agent crew design behind the app.
+This repository hosts the public **Course Page** and **Wall of Fame** for capstone projects built in Carmelo Iaria’s Maven course
+[“Become an Agentic Architect”][course].
 
 The site is published via GitHub Pages at:
 
-> https://synaptic-ai-consulting.github.io/become-an-agentic-architect-projects/index.html
+> https://synaptic-ai-consulting.github.io/become-an-agentic-architect-projects/
 
-[course]: https://maven.com/carmelo-iaria/mastering-mas-crewai
+[course]: https://maven.com/carmelo-iaria/agentic-architect
 
 ---
 
 ## What this repo contains
 
 - `index.html`  
-  The main gallery page (Wall of Fame) that lists all capstone projects and links to their showcases. It reads from `projects.json` to render cards client‑side.
+  The Course Page: alumni world map, HTML review wall, published capstones, instructor, syllabus. Lime flags with an eye icon open a published capstone in a modal. Map zoom is click-to-enable so page scroll is not trapped.
+
+- `wall-of-fame.html`  
+  The original card gallery. It reads from `projects.json` to render cards client-side.
+
+- `syllabus.json`  
+  Week-by-week syllabus captured from the live Maven listing.
+
+- `assets/`  
+  Map data, review manifest, instructor portrait/badge, Maven logo. Regenerated from the private marketing repo with `npm run wall-of-fame-publish` (operator only).
 
 - `projects.json`  
-  A JSON file containing one entry per project, including title, author, cohort, hero image path, and link to the project’s showcase page.
+  One entry per published project (title, author, cohort, hero image, showcase URL).
 
 - `projects/<slug>/`  
-  One folder per project, where `<slug>` is a URL‑friendly identifier, for example:
+  One folder per project, where `<slug>` is a URL-friendly identifier, for example:
 
   ```text
   projects/jan26-onboarding-crew-jane-doe/

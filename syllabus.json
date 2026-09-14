@@ -1,0 +1,262 @@
+{
+  "source": "https://maven.com/carmelo-iaria/agentic-architect",
+  "captured": "2026-09-14",
+  "course": "Become an Agentic Architect",
+  "instructor": "Carmelo Iaria",
+  "price": "$2,395",
+  "rating": "5.0 (30)",
+  "summary": "12 live sessions • 57 lessons • 10 projects",
+  "note": "Generic six-week outline from the Maven listing (topics, lesson titles, and 90-minute live/office-hour duration). Cohort dates live on the listing, not this page.",
+  "weeks": [
+    {
+      "week": 1,
+      "title": "Week 1",
+      "sessions": [
+        {
+          "type": "live",
+          "title": "Live Session 1: What are you going to Build and How",
+          "duration": "90 minutes"
+        },
+        {
+          "type": "office_hours",
+          "title": "Office Hours",
+          "duration": "90 minutes"
+        }
+      ],
+      "modules": [
+        {
+          "title": "Welcome to the course",
+          "lessons": [
+            { "title": "Welcome Video", "kind": "lesson" }
+          ]
+        },
+        {
+          "title": "Select the Use Case for your Capstone Project",
+          "lessons": [
+            { "title": "Selecting your Capstone Project (video)", "kind": "lesson" },
+            { "title": "USE CASE 1. Automated Employee Onboarding Workflow", "kind": "lesson" },
+            { "title": "USE CASE 2. Multi-Agent Customer Support Crew", "kind": "lesson" },
+            { "title": "USE CASE 3. Sales Enablement & Meeting Automation Crew", "kind": "lesson" },
+            { "title": "Choose your Capstone Project", "kind": "project" }
+          ]
+        },
+        {
+          "title": "Define (Scope, Context, PRD)",
+          "lessons": [
+            { "title": "The Define stage (video)", "kind": "lesson" },
+            { "title": "Onboard the AAMAD Dev Crew in your project", "kind": "lesson" },
+            { "title": "Setting the foundation for your Capstone Project (AAMAD agent personas)", "kind": "lesson" },
+            { "title": "Defining the scope for your Capstone Project with external AI tools (OPTIONAL)", "kind": "lesson" },
+            { "title": "Publish your MRD and PRD", "kind": "project" }
+          ]
+        },
+        {
+          "title": "Resources",
+          "lessons": [
+            { "title": "AAMAD Framework GitHub Repo", "kind": "lesson" },
+            { "title": "Market Research Template", "kind": "lesson" },
+            { "title": "Product Requirements Document Template", "kind": "lesson" },
+            { "title": "[PDF] The Agentic Architect Playbook", "kind": "lesson" },
+            { "title": "[PDF] The Four Patterns of SDLC Agentic Evolution", "kind": "lesson" }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 2,
+      "title": "Week 2",
+      "sessions": [
+        {
+          "type": "live",
+          "title": "Live Session 2: Defining Solution Architecture and UX",
+          "duration": "90 minutes"
+        },
+        {
+          "type": "office_hours",
+          "title": "Office Hours",
+          "duration": "90 minutes"
+        }
+      ],
+      "modules": [
+        {
+          "title": "Build (Solution Architecture)",
+          "lessons": [
+            { "title": "The Solution Architecture (video)", "kind": "lesson" },
+            { "title": "Crews vs Flows explainer video", "kind": "lesson" },
+            { "title": "Choosing an appropriate Multiagent System strategy", "kind": "lesson" },
+            { "title": "Best Practices for Agent Design", "kind": "lesson" },
+            { "title": "Select an appropriate LLM", "kind": "lesson" },
+            { "title": "Publish your SAD", "kind": "project" }
+          ]
+        },
+        {
+          "title": "Build (Frontend)",
+          "lessons": [
+            { "title": "The Frontend (video)", "kind": "lesson" },
+            { "title": "Designing User Journeys", "kind": "lesson" },
+            { "title": "Building the Application Frontend", "kind": "lesson" },
+            { "title": "Commit your Frontend code", "kind": "project" }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 3,
+      "title": "Week 3",
+      "sessions": [
+        {
+          "type": "live",
+          "title": "Live Session: Design your Backend and Crew",
+          "duration": "90 minutes"
+        },
+        {
+          "type": "office_hours",
+          "title": "Office Hours",
+          "duration": "90 minutes"
+        }
+      ],
+      "modules": [
+        {
+          "title": "Build (Backend with CrewAI Crew)",
+          "lessons": [
+            { "title": "Backend (video)", "kind": "lesson" },
+            { "title": "CrewAI framework introduction", "kind": "lesson" },
+            { "title": "CrewAI Core Concepts", "kind": "lesson" },
+            { "title": "Agent Roles, Goals, and Backstories", "kind": "lesson" },
+            { "title": "YAML Task Configuration in CrewAI", "kind": "lesson" },
+            { "title": "Agent Tools in CrewAI", "kind": "lesson" },
+            { "title": "Assembling Agents into a Crew", "kind": "lesson" },
+            { "title": "CrewAI Sequential & Hierarchical Process", "kind": "lesson" },
+            { "title": "CrewAI Flows – Orchestrating End‑to‑End Workflows", "kind": "lesson" },
+            { "title": "Agents Collaboration in CrewAI", "kind": "lesson" },
+            { "title": "Commit your Backend code", "kind": "project" }
+          ]
+        },
+        {
+          "title": "BONUS Resources",
+          "lessons": [
+            { "title": "Customizing Prompts in CrewAI", "kind": "lesson" },
+            { "title": "Managing Knowledge in CrewAI", "kind": "lesson" },
+            { "title": "Memory Management in CrewAI", "kind": "lesson" },
+            { "title": "Leveraging MCP in CrewAI", "kind": "lesson" },
+            { "title": "Connect to any LLMs", "kind": "lesson" },
+            { "title": "Building Custom Tools in CrewAI", "kind": "lesson" },
+            { "title": "Awesome GitHub Copilot - Skills Repo", "kind": "lesson" },
+            { "title": "From Local to Runtime - turning Skills and Personas into CrewAI Agents", "kind": "lesson" },
+            { "title": "How CrewAI, Claude Agent SDK, and Cursor SDK Build Multi-Agent Systems", "kind": "lesson" }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 4,
+      "title": "Week 4",
+      "sessions": [
+        {
+          "type": "live",
+          "title": "Live Session 4: Full-stack integration",
+          "duration": "90 minutes"
+        },
+        {
+          "type": "office_hours",
+          "title": "Office Hours",
+          "duration": "90 minutes"
+        }
+      ],
+      "modules": [
+        {
+          "title": "Build (Full-stack Integration, Human-in-the-Loop, APIs)",
+          "lessons": [
+            { "title": "Integration (video)", "kind": "lesson" },
+            { "title": "Full-Stack Integration Patterns with CrewAI", "kind": "lesson" },
+            { "title": "Human-in-the-Loop & Feedback Mechanisms", "kind": "lesson" },
+            { "title": "Integrating External APIs & Data Sources", "kind": "lesson" },
+            { "title": "Commit the Integrated code", "kind": "project" }
+          ]
+        },
+        {
+          "title": "BONUS Resources",
+          "lessons": [
+            { "title": "Mastering Flow State Management", "kind": "lesson" },
+            { "title": "Planning & Reasoning with CrewAI", "kind": "lesson" }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 5,
+      "title": "Week 5",
+      "sessions": [
+        {
+          "type": "live",
+          "title": "Live Session 5: Production-Ready Applications",
+          "duration": "90 minutes"
+        },
+        {
+          "type": "office_hours",
+          "title": "Office Hours",
+          "duration": "90 minutes"
+        }
+      ],
+      "modules": [
+        {
+          "title": "Build (Observability, QA, Optimization)",
+          "lessons": [
+            { "title": "Observability & QA (video)", "kind": "lesson" },
+            { "title": "Observability", "kind": "lesson" },
+            { "title": "Performance Monitoring & Optimization", "kind": "lesson" },
+            { "title": "Commit your final code", "kind": "project" }
+          ]
+        },
+        {
+          "title": "Deliver",
+          "lessons": [
+            { "title": "Deploy and Present (video)", "kind": "lesson" },
+            { "title": "Production Best Practices", "kind": "lesson" },
+            { "title": "Setting up your Application Hosting environment", "kind": "lesson" },
+            { "title": "Setting up your CI/CD", "kind": "lesson" },
+            { "title": "Deploy your full stack application", "kind": "project" }
+          ]
+        },
+        {
+          "title": "BONUS Resources",
+          "lessons": [
+            { "title": "Evals & Quality Gates", "kind": "lesson" }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 6,
+      "title": "Week 6",
+      "sessions": [
+        {
+          "type": "live",
+          "title": "Live Session 6: Completing and Publishing your Application",
+          "duration": "90 minutes"
+        },
+        {
+          "type": "demo_day",
+          "title": "Demo Day",
+          "duration": "90 minutes"
+        }
+      ],
+      "modules": [
+        {
+          "title": "Present (Final Demo)",
+          "lessons": [
+            { "title": "Closing (video)", "kind": "lesson" },
+            { "title": "Publish your Capstone Project", "kind": "project" }
+          ]
+        },
+        {
+          "title": "Share your accomplishment with the world",
+          "lessons": [
+            { "title": "Wall of Fame Publisher", "kind": "lesson" },
+            { "title": "Share your accomplishment", "kind": "project" }
+          ]
+        }
+      ]
+    }
+  ]
+}
