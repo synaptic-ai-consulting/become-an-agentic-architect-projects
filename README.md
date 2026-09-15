@@ -7,6 +7,8 @@ The site is published via GitHub Pages at:
 
 > https://synaptic-ai-consulting.github.io/become-an-agentic-architect-projects/
 
+Deploy is the `Deploy GitHub Pages` workflow (`.github/workflows/pages.yml`). The repo’s default Actions token is read-only; that workflow requests `pages: write` and `id-token: write` so the deploy can mint an OIDC token.
+
 [course]: https://maven.com/carmelo-iaria/agentic-architect
 
 ---
