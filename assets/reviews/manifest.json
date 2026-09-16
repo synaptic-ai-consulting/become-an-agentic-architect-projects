@@ -1,7 +1,9 @@
 {
   "source": "https://maven.com/carmelo-iaria/agentic-architect#course-reviews",
-  "captured": "2026-09-14",
+  "captured": "2026-09-15",
   "count": 28,
+  "maven_rating": "5.0",
+  "maven_ratings": 32,
   "stage": "R — Referrals (post-course alumni proof)",
   "note": "Each PNG is a cropped Maven Alumni Reviews card from the expanded right-side panel, matching the published card layout (including Read more when the UI truncates).",
   "reviews": [
