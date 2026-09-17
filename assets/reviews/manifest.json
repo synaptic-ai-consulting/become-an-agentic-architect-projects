@@ -1,9 +1,9 @@
 {
   "source": "https://maven.com/carmelo-iaria/agentic-architect#course-reviews",
-  "captured": "2026-09-15",
-  "count": 28,
+  "captured": "2026-09-17",
+  "count": 29,
   "maven_rating": "5.0",
-  "maven_ratings": 32,
+  "maven_ratings": 34,
   "stage": "R — Referrals (post-course alumni proof)",
   "note": "Each PNG is a cropped Maven Alumni Reviews card from the expanded right-side panel, matching the published card layout (including Read more when the UI truncates).",
   "reviews": [
@@ -286,7 +286,17 @@
       "badge": "LIVE COHORT",
       "truncated_in_ui": false,
       "review_text": "The whole course experience has been excellent. I learned a lot, especially about CrewAI and agentic architecture. Learning to approach problems in different ways, while balancing complexity and precision, was a real mindset shift for me. I also really valued the integration and testing process to ensure consistent results. Due to some time constraints, I had to postpone the final part, but I'll be coming back to complete it with a lot of enthusiasm. I'm very grateful for the experience and look forward to completing the course."
+    },
+    {
+      "index": 29,
+      "file": "29-melanie-2026-09-17.png",
+      "name": "Melanie",
+      "title": "Delivery Director · Salesforce",
+      "date": "Sep 17, 2026",
+      "badge": "LIVE COHORT",
+      "truncated_in_ui": false,
+      "review_text": "\"Become an Agentic Architect\" was one of the most insightful courses I've taken on AI-assisted development. The AAMAD framework (Define, Build, Deliver) gave me a structured, repeatable way to work with agents instead of improvising with prompts. The biggest takeaway for me was truly understanding multi-agent orchestration: not just how to build it, but how to design where humans stay in the loop so the system remains reliable and accountable. The collaboration with my Cohort (my peers), was incredibly valuable. Seeing how others approached problems, opportunities, and their lessons learned, deepened my learning. I came away having actually built something, not just learned concepts. Highly recommend it to anyone who wants to move from experimenting with AI to architecting real agentic systems."
     }
   ],
-  "ordering": "Chronological by review date received (oldest = 01, newest = 28)."
+  "ordering": "Chronological by review date received (oldest = 01, newest = 29)."
 }
