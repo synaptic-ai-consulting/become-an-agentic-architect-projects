@@ -262,6 +262,19 @@
     }
     .alumni-marker.has-project .alumni-flag { border-left-color: #111; }
 
+    /* Published-project flags: alternate anchors so labels do not stack. Pins stay on the city. */
+    .flag-nw .alumni-flag { left: auto; right: 18px; top: -108px; }
+    .flag-n2 .alumni-flag { left: 18px; top: -156px; }
+    .flag-n2 .alumni-pole { top: -130px; height: 130px; }
+    .flag-n3 .alumni-flag { left: 18px; top: -204px; }
+    .flag-n3 .alumni-pole { top: -178px; height: 178px; }
+    .flag-se .alumni-flag { left: 18px; top: 22px; }
+    .flag-se .alumni-pole { top: 16px; height: 36px; }
+    .flag-sw .alumni-flag { left: auto; right: 18px; top: 22px; }
+    .flag-sw .alumni-pole { top: 16px; height: 36px; }
+    .alumni-marker.has-project.flag-se.flags-on .alumni-place,
+    .alumni-marker.has-project.flag-sw.flags-on .alumni-place { display: none; }
+
     .section { padding: 72px 24px; scroll-margin-top: calc(var(--header-h) + 8px); }
     .section-inner { max-width: 1120px; margin: 0 auto; }
     .section h2 { font-size: clamp(1.7rem, 3vw, 2.25rem); letter-spacing: -0.03em; margin-bottom: 10px; font-weight: 600; }
@@ -589,7 +602,7 @@
       const pinClose = hasProject ? "button" : "div";
       const openAttr = hasProject ? " data-project-open=\"true\"" : "";
       return `
-        <div class="alumni-marker ${cohortClass(a)} ${hasProject ? "has-project" : ""} ${off}">
+        <div class="alumni-marker ${cohortClass(a)} ${hasProject ? "has-project flag-ne" : ""} ${off}">
           <div class="alumni-pole"></div>
           <${flagTag} class="alumni-flag"${openAttr}>
             <span class="flag-view-icon">${EYE_SVG}</span>
@@ -709,6 +722,62 @@
       if (iconEl) iconEl.classList.toggle("is-hovered", hovered);
     }
 
+    const PROJECT_FLAG_DIRS = ["ne", "nw", "n2", "se", "sw", "n3"];
+    function projectFlagRoot(marker) {
+      const el = marker.getElement();
+      return el && el.querySelector(".alumni-marker.has-project");
+    }
+    function applyProjectFlagDir(root, dir) {
+      PROJECT_FLAG_DIRS.forEach((name) => root.classList.remove("flag-" + name));
+      root.classList.add("flag-" + dir);
+      const flag = root.querySelector(".alumni-flag");
+      if (flag) flag.style.transform = "";
+    }
+    function flagBoxesOverlap(a, b, pad) {
+      const gap = pad == null ? 10 : pad;
+      return !(a.right + gap < b.left || a.left - gap > b.right || a.bottom + gap < b.top || a.top - gap > b.bottom);
+    }
+    function layoutProjectFlags() {
+      const items = [];
+      markers.forEach((marker) => {
+        if (!marker._alumni || !marker._alumni.showcaseUrl) return;
+        const root = projectFlagRoot(marker);
+        if (!root) return;
+        applyProjectFlagDir(root, "ne");
+        items.push({ marker, root });
+      });
+      items.sort((a, b) => {
+        const pa = map.latLngToContainerPoint(a.marker.getLatLng());
+        const pb = map.latLngToContainerPoint(b.marker.getLatLng());
+        return pa.x - pb.x || pa.y - pb.y;
+      });
+      const placed = [];
+      items.forEach((item) => {
+        const flag = item.root.querySelector(".alumni-flag");
+        if (!flag) return;
+        let box = flag.getBoundingClientRect();
+        let found = false;
+        for (let i = 0; i < PROJECT_FLAG_DIRS.length; i++) {
+          const dir = PROJECT_FLAG_DIRS[i];
+          applyProjectFlagDir(item.root, dir);
+          box = flag.getBoundingClientRect();
+          if (!placed.some((p) => flagBoxesOverlap(box, p))) {
+            found = true;
+            break;
+          }
+        }
+        if (!found) {
+          applyProjectFlagDir(item.root, "n3");
+          for (let n = 1; n <= 8; n++) {
+            flag.style.transform = "translateY(" + (-28 * n) + "px)";
+            box = flag.getBoundingClientRect();
+            if (!placed.some((p) => flagBoxesOverlap(box, p))) break;
+          }
+        }
+        placed.push(flag.getBoundingClientRect());
+      });
+    }
+
     function wireProjectOpener(marker, alumni) {
       const root = marker.getElement();
       if (!root || !alumni.showcaseUrl) return;
@@ -773,7 +842,9 @@
     map.on("zoomend", () => {
       const on = flagsShouldShow();
       markers.forEach((m) => setMarkerFlags(m, on));
+      layoutProjectFlags();
     });
+    map.on("moveend", layoutProjectFlags);
 
     function setMapActive(on) {
       mapRoot.classList.toggle("is-active", on);
@@ -795,6 +866,7 @@
       const minZ = map.getBoundsZoom(cropBounds, false, [16, 16]);
       map.setMinZoom(minZ);
       map.fitBounds(cropBounds, { animate: false, padding: [16, 16] });
+      layoutProjectFlags();
     }
     requestAnimationFrame(() => requestAnimationFrame(applyAlumniCrop));
     window.addEventListener("resize", applyAlumniCrop);
@@ -903,10 +975,25 @@
       wireNestedScroll(document.getElementById("reviews-scroller"));
     }
 
+    function cohortTime(cohort) {
+      const t = Date.parse("1 " + String(cohort || ""));
+      return Number.isNaN(t) ? 0 : t;
+    }
+    function sortProjectsNewestFirst(projects) {
+      return projects
+        .map((p, i) => ({ p, i }))
+        .sort((a, b) => {
+          const dt = cohortTime(b.p.cohort) - cohortTime(a.p.cohort);
+          if (dt) return dt;
+          return a.i - b.i;
+        })
+        .map(({ p }) => p);
+    }
+
     async function initCapstones() {
       const res = await fetch("projects.json", { cache: "no-store" });
       const data = await res.json();
-      const projects = data.projects || [];
+      const projects = sortProjectsNewestFirst(data.projects || []);
       const grid = document.getElementById("cap-grid");
       if (!projects.length) {
         document.getElementById("cap-empty").style.display = "block";

@@ -270,7 +270,17 @@
         const res = await fetch('projects.json');
         if (!res.ok) throw new Error('projects.json not found');
         const data = await res.json();
-        return data.projects || [];
+        const projects = data.projects || [];
+        return projects
+          .map((p, i) => ({ p, i }))
+          .sort((a, b) => {
+            const tb = Date.parse("1 " + String(b.p.cohort || ""));
+            const ta = Date.parse("1 " + String(a.p.cohort || ""));
+            const dt = (Number.isNaN(tb) ? 0 : tb) - (Number.isNaN(ta) ? 0 : ta);
+            if (dt) return dt;
+            return a.i - b.i;
+          })
+          .map(({ p }) => p);
       } catch (e) {
         console.error(e);
         return [];
