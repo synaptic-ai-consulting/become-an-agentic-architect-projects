@@ -1,7 +1,7 @@
 {
   "source": "https://maven.com/carmelo-iaria/agentic-architect#course-reviews",
-  "captured": "2026-09-17",
-  "count": 29,
+  "captured": "2026-09-24",
+  "count": 30,
   "maven_rating": "5.0",
   "maven_ratings": 34,
   "stage": "R — Referrals (post-course alumni proof)",
@@ -296,7 +296,17 @@
       "badge": "LIVE COHORT",
       "truncated_in_ui": false,
       "review_text": "\"Become an Agentic Architect\" was one of the most insightful courses I've taken on AI-assisted development. The AAMAD framework (Define, Build, Deliver) gave me a structured, repeatable way to work with agents instead of improvising with prompts. The biggest takeaway for me was truly understanding multi-agent orchestration: not just how to build it, but how to design where humans stay in the loop so the system remains reliable and accountable. The collaboration with my Cohort (my peers), was incredibly valuable. Seeing how others approached problems, opportunities, and their lessons learned, deepened my learning. I came away having actually built something, not just learned concepts. Highly recommend it to anyone who wants to move from experimenting with AI to architecting real agentic systems."
+    },
+    {
+      "index": 30,
+      "file": "30-suyen-2026-09-23.png",
+      "name": "suyen",
+      "title": "UX designer · yen graphics",
+      "date": "Sep 23, 2026",
+      "badge": "LIVE COHORT",
+      "truncated_in_ui": true,
+      "review_text": "This was one of the most comprehensive AI classes I've taken. From day 1, the foundation was the key to understanding so much of what followed. Carmelo did a great job of delivering the material in a way that worked for every level. Beyond the hands-on portion, there were plenty of additional resources that helped me understand why I was doing what I was doing. The AAMAD framework was and is flexible enough to customize to whatever I could imagine. The one-on-ones were key for me. When I couldn't get out of my own head to push through, that extra time was exactly what I needed to overcome the challenge."
     }
   ],
-  "ordering": "Chronological by review date received (oldest = 01, newest = 29)."
+  "ordering": "Chronological by review date received (oldest = 01, newest = 30)."
 }
