@@ -1,16 +1,54 @@
 {
-  "source": "https://maven.com/carmelo-iaria/agentic-architect",
-  "captured": "2026-09-24",
+  "source": "Maven cohort syllabus (operator screenshots, 2026-09-28) — not yet public on the listing",
+  "captured": "2026-09-28",
   "course": "Become an Agentic Architect",
   "instructor": "Carmelo Iaria",
   "price": "$2,395",
   "rating": "5.0 (34)",
-  "summary": "12 live sessions • 57 lessons • 10 projects",
-  "note": "Generic six-week outline from the Maven listing (topics, lesson titles, and 90-minute live/office-hour duration). Cohort dates live on the listing, not this page.",
+  "summary": "Pre-course + 6 weeks • 12 live sessions • 88 lessons • 12 projects",
+  "note": "Season 2 outline. Recorded lessons from the self-paced course now sit inside the existing capstone weeks (solution design, models, integration, governance, stakeholder work). No cohort dates on this page — those live on the Maven listing. Private-cohort dates from the source screenshots are omitted.",
   "weeks": [
     {
+      "week": 0,
+      "title": "Pre-course",
+      "sessions": [],
+      "modules": [
+        {
+          "title": "Start here: Welcome to Maven",
+          "lessons": [
+            { "title": "Three things to do to get started", "kind": "lesson" },
+            { "title": "What makes cohort-based learning different?", "kind": "lesson" },
+            { "title": "Where to get support", "kind": "lesson" }
+          ]
+        },
+        {
+          "title": "3 lessons you want to complete before we kickoff",
+          "lessons": [
+            { "title": "What is AAMAD?", "kind": "lesson" },
+            { "title": "Understanding Multiagent Systems (MAS)", "kind": "lesson" },
+            { "title": "Artificial Intelligence has a Last Mile problem", "kind": "lesson" }
+          ]
+        },
+        {
+          "title": "Set up your environment",
+          "lessons": [
+            { "title": "Running WSL on a Windows Machine (optional recommendation)", "kind": "lesson" },
+            { "title": "Choosing your application runtime adapter", "kind": "lesson" },
+            { "title": "Complete your development environment setup", "kind": "project" }
+          ]
+        },
+        {
+          "title": "Complete Agentic Architect 101",
+          "lessons": [
+            { "title": "Agentic Architect 101", "kind": "lesson" },
+            { "title": "Share your Certificate", "kind": "project" }
+          ]
+        }
+      ]
+    },
+    {
       "week": 1,
-      "title": "Week 1",
+      "title": "Week 1 — Define scope and context",
       "sessions": [
         {
           "type": "live",
@@ -41,12 +79,11 @@
           ]
         },
         {
-          "title": "Define (Scope, Context, PRD)",
+          "title": "Capstone Project — Sprint 1: Define Scope and Context",
           "lessons": [
             { "title": "The Define stage (video)", "kind": "lesson" },
             { "title": "Onboard the AAMAD Dev Crew in your project", "kind": "lesson" },
             { "title": "Setting the foundation for your Capstone Project (AAMAD agent personas)", "kind": "lesson" },
-            { "title": "Defining the scope for your Capstone Project with external AI tools (OPTIONAL)", "kind": "lesson" },
             { "title": "Publish your MRD and PRD", "kind": "project" }
           ]
         },
@@ -64,7 +101,7 @@
     },
     {
       "week": 2,
-      "title": "Week 2",
+      "title": "Week 2 — Solution architecture",
       "sessions": [
         {
           "type": "live",
@@ -79,7 +116,18 @@
       ],
       "modules": [
         {
-          "title": "Build (Solution Architecture)",
+          "title": "Solution Design & Architecture",
+          "lessons": [
+            { "title": "The Big Picture", "kind": "lesson" },
+            { "title": "Understand How Models Behave", "kind": "lesson" },
+            { "title": "Define who does what", "kind": "lesson" },
+            { "title": "Select the correct Pattern", "kind": "lesson" },
+            { "title": "Choose the Reference Architecture", "kind": "lesson" },
+            { "title": "Define the Deployment Shape", "kind": "lesson" }
+          ]
+        },
+        {
+          "title": "Capstone Project — Sprint 2: Define Solution Architecture",
           "lessons": [
             { "title": "The Solution Architecture (video)", "kind": "lesson" },
             { "title": "Crews vs Flows explainer video", "kind": "lesson" },
@@ -88,21 +136,12 @@
             { "title": "Select an appropriate LLM", "kind": "lesson" },
             { "title": "Publish your SAD", "kind": "project" }
           ]
-        },
-        {
-          "title": "Build (Frontend)",
-          "lessons": [
-            { "title": "The Frontend (video)", "kind": "lesson" },
-            { "title": "Designing User Journeys", "kind": "lesson" },
-            { "title": "Building the Application Frontend", "kind": "lesson" },
-            { "title": "Commit your Frontend code", "kind": "project" }
-          ]
         }
       ]
     },
     {
       "week": 3,
-      "title": "Week 3",
+      "title": "Week 3 — Frontend and backend",
       "sessions": [
         {
           "type": "live",
@@ -117,7 +156,25 @@
       ],
       "modules": [
         {
-          "title": "Build (Backend with CrewAI Crew)",
+          "title": "Interacting with Large Language Models",
+          "lessons": [
+            { "title": "Introduction", "kind": "lesson" },
+            { "title": "Model Selection & Context Engineering", "kind": "lesson" },
+            { "title": "Prompting", "kind": "lesson" },
+            { "title": "Knowledge Extension", "kind": "lesson" }
+          ]
+        },
+        {
+          "title": "Capstone Project — Sprint 3: Build Frontend",
+          "lessons": [
+            { "title": "The Frontend (video)", "kind": "lesson" },
+            { "title": "Designing User Journeys", "kind": "lesson" },
+            { "title": "Building the Application Frontend", "kind": "lesson" },
+            { "title": "Commit your Frontend code", "kind": "project" }
+          ]
+        },
+        {
+          "title": "Capstone Project — Sprint 3: Build Backend",
           "lessons": [
             { "title": "Backend (video)", "kind": "lesson" },
             { "title": "CrewAI framework introduction", "kind": "lesson" },
@@ -127,30 +184,16 @@
             { "title": "Agent Tools in CrewAI", "kind": "lesson" },
             { "title": "Assembling Agents into a Crew", "kind": "lesson" },
             { "title": "CrewAI Sequential & Hierarchical Process", "kind": "lesson" },
-            { "title": "CrewAI Flows – Orchestrating End‑to‑End Workflows", "kind": "lesson" },
+            { "title": "CrewAI Flows – Orchestrating End-to-End Workflows", "kind": "lesson" },
             { "title": "Agents Collaboration in CrewAI", "kind": "lesson" },
             { "title": "Commit your Backend code", "kind": "project" }
-          ]
-        },
-        {
-          "title": "BONUS Resources",
-          "lessons": [
-            { "title": "Customizing Prompts in CrewAI", "kind": "lesson" },
-            { "title": "Managing Knowledge in CrewAI", "kind": "lesson" },
-            { "title": "Memory Management in CrewAI", "kind": "lesson" },
-            { "title": "Leveraging MCP in CrewAI", "kind": "lesson" },
-            { "title": "Connect to any LLMs", "kind": "lesson" },
-            { "title": "Building Custom Tools in CrewAI", "kind": "lesson" },
-            { "title": "Awesome GitHub Copilot - Skills Repo", "kind": "lesson" },
-            { "title": "From Local to Runtime - turning Skills and Personas into CrewAI Agents", "kind": "lesson" },
-            { "title": "How CrewAI, Claude Agent SDK, and Cursor SDK Build Multi-Agent Systems", "kind": "lesson" }
           ]
         }
       ]
     },
     {
       "week": 4,
-      "title": "Week 4",
+      "title": "Week 4 — Full-stack integration",
       "sessions": [
         {
           "type": "live",
@@ -165,7 +208,18 @@
       ],
       "modules": [
         {
-          "title": "Build (Full-stack Integration, Human-in-the-Loop, APIs)",
+          "title": "Solution Integration",
+          "lessons": [
+            { "title": "Introduction", "kind": "lesson" },
+            { "title": "Evals & Quality Gates", "kind": "lesson" },
+            { "title": "POC-to-Production Checklist", "kind": "lesson" },
+            { "title": "Feasibility & Cost Estimation", "kind": "lesson" },
+            { "title": "Enterprise Integration Architecture", "kind": "lesson" },
+            { "title": "Observability & A/B Testing", "kind": "lesson" }
+          ]
+        },
+        {
+          "title": "Capstone Project — Sprint 4: Build Full-stack Integration",
           "lessons": [
             { "title": "Integration (video)", "kind": "lesson" },
             { "title": "Full-Stack Integration Patterns with CrewAI", "kind": "lesson" },
@@ -185,7 +239,7 @@
     },
     {
       "week": 5,
-      "title": "Week 5",
+      "title": "Week 5 — Production-ready",
       "sessions": [
         {
           "type": "live",
@@ -200,7 +254,18 @@
       ],
       "modules": [
         {
-          "title": "Build (Observability, QA, Optimization)",
+          "title": "Governance, Safety & Risk Management",
+          "lessons": [
+            { "title": "Introduction", "kind": "lesson" },
+            { "title": "Alignment", "kind": "lesson" },
+            { "title": "Guardrails", "kind": "lesson" },
+            { "title": "Fairness", "kind": "lesson" },
+            { "title": "Roles & Responsibilities", "kind": "lesson" },
+            { "title": "Compliance", "kind": "lesson" }
+          ]
+        },
+        {
+          "title": "Capstone Project — Sprint 5: Build Observability & QA",
           "lessons": [
             { "title": "Observability & QA (video)", "kind": "lesson" },
             { "title": "Observability", "kind": "lesson" },
@@ -209,7 +274,7 @@
           ]
         },
         {
-          "title": "Deliver",
+          "title": "Capstone Project — Sprint 5: Deliver",
           "lessons": [
             { "title": "Deploy and Present (video)", "kind": "lesson" },
             { "title": "Production Best Practices", "kind": "lesson" },
@@ -228,7 +293,7 @@
     },
     {
       "week": 6,
-      "title": "Week 6",
+      "title": "Week 6 — Present and publish",
       "sessions": [
         {
           "type": "live",
@@ -243,7 +308,20 @@
       ],
       "modules": [
         {
-          "title": "Present (Final Demo)",
+          "title": "Stakeholder Communication & Operations",
+          "lessons": [
+            { "title": "Introduction", "kind": "lesson" },
+            { "title": "Discovery", "kind": "lesson" },
+            { "title": "Tradeoffs", "kind": "lesson" },
+            { "title": "Feedback Loops", "kind": "lesson" },
+            { "title": "Documentation", "kind": "lesson" },
+            { "title": "Team Setup", "kind": "lesson" },
+            { "title": "Development Workflows", "kind": "lesson" },
+            { "title": "Operations Support", "kind": "lesson" }
+          ]
+        },
+        {
+          "title": "Capstone Project — Sprint 6: Present",
           "lessons": [
             { "title": "Closing (video)", "kind": "lesson" },
             { "title": "Publish your Capstone Project", "kind": "project" }
@@ -254,6 +332,25 @@
           "lessons": [
             { "title": "Wall of Fame Publisher", "kind": "lesson" },
             { "title": "Share your accomplishment", "kind": "project" }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 7,
+      "title": "Post-course",
+      "sessions": [],
+      "modules": [
+        {
+          "title": "Join the Agentic Architect Slack Alumni",
+          "lessons": [
+            { "title": "Join the community", "kind": "lesson" }
+          ]
+        },
+        {
+          "title": "Wrap-up",
+          "lessons": [
+            { "title": "Reflect: Wrap-up", "kind": "lesson" }
           ]
         }
       ]
