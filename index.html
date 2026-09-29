@@ -379,7 +379,21 @@
     .module { margin-top: 12px; }
     .module-title { font-weight: 600; color: var(--ink); font-size: 0.9rem; }
     .lessons { margin: 6px 0 0 18px; color: var(--ink-muted); font-size: 0.85rem; line-height: 1.5; }
-    .lesson-project::after { content: " · project"; font-size: 0.75rem; font-weight: 600; color: #64748b; }
+    .lesson-project {
+      color: #1e3a8a;
+      font-weight: 600;
+      list-style: none;
+      margin-left: -18px;
+      padding-left: 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+    }
+    .lesson-project .project-icon {
+      width: 14px; height: 14px; flex-shrink: 0; margin-top: 0.18em;
+    }
+    .lesson-project .project-icon svg { display: block; width: 100%; height: 100%; }
+    .lesson-project::after { content: " · project"; font-size: 0.75rem; font-weight: 600; color: #1e3a8a; white-space: nowrap; }
     .syllabus-cta { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
 
     footer.page-footer {
@@ -561,6 +575,7 @@
   <script>
     const FLAG_ZOOM = 4;
     const EYE_SVG = `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/></svg>`;
+    const PROJECT_SVG = `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2" stroke="currentColor" stroke-width="2"/><path d="M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2 2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2z" stroke="currentColor" stroke-width="2"/><path d="M9 12h6M9 16h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
     const COHORT_COLORS = {
       1: "#8b5cf6", 2: "#06b6d4", 3: "#3b82f6", 4: "#f59e0b", 5: "#10b981", 6: "#f43f5e",
       corp: "#e879f9"
@@ -1052,8 +1067,12 @@
               const item = document.createElement("li");
               const title = typeof lesson === "string" ? lesson : lesson.title;
               const kind = typeof lesson === "string" ? "lesson" : (lesson.kind || "lesson");
-              item.textContent = title;
-              if (kind === "project") item.className = "lesson-project";
+              if (kind === "project") {
+                item.className = "lesson-project";
+                item.innerHTML = `<span class="project-icon">${PROJECT_SVG}</span><span>${escapeHtml(title)}</span>`;
+              } else {
+                item.textContent = title;
+              }
               nested.appendChild(item);
             });
             li.appendChild(nested);
