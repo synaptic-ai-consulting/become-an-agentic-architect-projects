@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Senior Digital Literacy – Agentic Architect Capstone</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+      margin: 0;
+      padding: 24px;
+      background: #020617;
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    h1, h2 {
+      color: #f9fafb;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    h2 {
+      margin-top: 1.8rem;
+      margin-bottom: 0.4rem;
+    }
+    p {
+      margin: 0.3rem 0;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 12px;
+      margin: 0.75rem 0;
+      border: 1px solid #1f2937;
+    }
+    ul { padding-left: 1.2rem; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.5rem;
+    }
+    th, td {
+      border: 1px solid #1f2937;
+      padding: 6px 8px;
+      font-size: 0.9rem;
+    }
+    th {
+      background: #020617;
+    }
+    .meta {
+      color: #9ca3af;
+      font-size: 0.9rem;
+      margin-bottom: 0.8rem;
+    }
+    .pill {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 3px 9px;
+      border: 1px solid #1f2937;
+      font-size: 0.8rem;
+      color: #9ca3af;
+      margin-right: 6px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Senior Digital Literacy</h1>
+      <p class="meta">
+        Built by <strong>Suyen Stevenson</strong> –
+        Capstone for “Become an Agentic Architect / Mastering Multiagent AI Systems with CrewAI”.
+      </p>
+      <p>
+        <span class="pill">Cohort 6</span>
+        <span class="pill">CrewAI Flow</span>
+        <span class="pill">Next.js</span>
+      </p>
+      <p>Two clear paths — learn one step at a time, or check whether a message is a scam — with patient coaches who never rush an older adult.</p>
+      <img src="hero.png" alt="Hero screenshot of Senior Digital Literacy" />
+    </header>
+
+    <section>
+      <h2>Problem &amp; Target Users</h2>
+      <p>Most older adults in the U.S. own a smartphone, but many do not feel confident using it. Fraud losses for adults 60+ keep rising, and existing tools treat scam safety as an add-on. The tone is often rushed or shaming.</p>
+      <p>This is for adults about 65–79 using their own phone or tablet at home, and for family caregivers who help someone get started.</p>
+    </section>
+
+    <section>
+      <h2>Solution Overview</h2>
+      <p>Senior Digital Literacy is a text coach with two explicit paths: check a suspicious message, or learn one life-goal step. A CrewAI Flow intent gate sends each turn to exactly one conversational agent, the tutor or the scam checker.</p>
+      <p>The page stays calm and large-type. A verified local library overwrites model wording when a known scam pattern matches, so the safety advice is owned content rather than an open-web guess.</p>
+    </section>
+
+    <section>
+      <h2>Key Features</h2>
+      <ul>
+        <li><strong>Two paths on one screen</strong> – “Learn the Signs, Protect Yourself” toggles between Check a scam and Learn a skill.</li>
+        <li><strong>Scam check</strong> – Paste a message and get a calm verdict, plus a verified guide when it matches the owned library.</li>
+        <li><strong>One-step tutor</strong> – Pick a life goal, such as a family video call, and receive a single Step 1 card.</li>
+        <li><strong>Visible crew status</strong> – A banner and progress bar show idle, running, and done, with Pause always available.</li>
+        <li><strong>Print without the paste</strong> – Save or print the result, or the visit, without putting the pasted message on the sheet.</li>
+        <li><strong>Shame-free disclosure</strong> – Copy states the guide is a computer, not a person reading along.</li>
+        <li><strong>Safety routing</strong> – An explicit button wins, and a scam-safety override can move the turn to the scam checker.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Multi-agent AI Crew</h2>
+      <p>A CrewAI Flow routes each turn to one agent. The intent router is a flow step, not a third chat persona. Progress is a backend concern, not another agent in the conversation.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Agent</th>
+            <th>Role</th>
+            <th>Tools / Integrations</th>
+            <th>Trigger</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Intent router</td>
+            <td>Classify the session and pick Tutor or Scam. No chat UI.</td>
+            <td>classify_intent, safety override, session path</td>
+            <td>Every turn: button choice, natural language, or scam-safety override</td>
+          </tr>
+          <tr>
+            <td>Your tutor</td>
+            <td>One verified step at a time. Patient Mode when extra help is needed.</td>
+            <td>Verified tutorial guidance, Claude</td>
+            <td>Learn a skill, or a tutoring goal</td>
+          </tr>
+          <tr>
+            <td>Scam checker</td>
+            <td>Calm risk read and a safe next action. Priority Mode for an active scam.</td>
+            <td>Local scam library only, Claude</td>
+            <td>Check a scam, or a safety override</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Technical Architecture</h2>
+      <ul>
+        <li><strong>Frontend</strong> – Next.js 15, React 19, TypeScript, Tailwind CSS.</li>
+        <li><strong>Backend</strong> – Python 3.12, FastAPI, CrewAI Flow, Anthropic Claude.</li>
+        <li><strong>Data / storage</strong> – Owned scam-pattern library in the app. PostgreSQL and pgvector are specified for later; this demo does not run a database.</li>
+        <li><strong>Integrations</strong> – Anthropic Claude API. No open-web search on the scam checker.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Deployment</h2>
+      <p>The verified demo is Docker Compose on the laptop, bound to 127.0.0.1, with a health check on the API. Railway config is scaffolded as a public Next.js web service and a private FastAPI API. It is not live. GitHub Actions runs lint, test, and build only.</p>
+    </section>
+
+    <section>
+      <h2>Screenshots</h2>
+      <ul>
+        <li><img src="screen-1.png" alt="Scam checker verdict for a gift-card bail message, with a verified guide and official resource links" /></li>
+        <li><img src="screen-2.png" alt="Tutor Step 1 card for joining a video call with family" /></li>
+        <li><img src="screen-3.png" alt="Learn a skill mode with three life-goal tasks to choose from" /></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>My Role &amp; Learnings as Agentic Architect</h2>
+      <ul>
+        <li>Kept the intent router as a Flow step so the chat never grows a third persona that can tutor and judge scams in the same voice.</li>
+        <li>Let an explicit button win, and let a safety override force the scam path, instead of trusting a classifier alone.</li>
+        <li>Grounded scam replies in an owned library so a match replaces model text with verified guidance.</li>
+        <li>Left agent memory off and kept the demo on loopback, because an unauthenticated chat endpoint spends the model key.</li>
+        <li>Shipped the two proof paths on one page and named what is still out of scope, including signup, caregiver progress, and multi-step lessons.</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

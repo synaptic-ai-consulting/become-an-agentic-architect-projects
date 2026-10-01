@@ -160,6 +160,35 @@
         "Agentic Architect",
         "capstone"
       ]
+    },
+    {
+      "projectTitle": "Senior Digital Literacy",
+      "authorName": "Suyen Stevenson",
+      "authorGithub": "pixellady",
+      "cohort": "Cohort 6",
+      "valueProposition": "Two clear paths — learn one step at a time, or check whether a message is a scam — with patient coaches who never rush an older adult.",
+      "targetMarket": "U.S. adults about 65–79 on their own phone or tablet, and family caregivers who help them get started",
+      "heroImageUrl": "projects/c6-senior-digital-literacy-suyen-stevenson/hero.png",
+      "showcaseUrl": "projects/c6-senior-digital-literacy-suyen-stevenson/index.html",
+      "techStack": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "FastAPI",
+        "CrewAI",
+        "CrewAI Flow",
+        "Docker",
+        "Railway",
+        "Cursor"
+      ],
+      "tags": [
+        "multi-agent",
+        "agentic-architect",
+        "capstone",
+        "senior-safety",
+        "CrewAI"
+      ]
     }
   ]
 }
