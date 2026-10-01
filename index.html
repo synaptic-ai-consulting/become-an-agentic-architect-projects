@@ -591,6 +591,63 @@
       return String(url).replace(/^\//, "");
     }
 
+    function normalizeName(raw) {
+      return String(raw || "").trim().toLowerCase().split(/\s+/).filter(Boolean).join(" ");
+    }
+
+    async function nameKey(raw) {
+      const norm = normalizeName(raw);
+      if (!norm || !window.crypto || !window.crypto.subtle) return "";
+      const buf = await window.crypto.subtle.digest("SHA-256", new TextEncoder().encode(norm));
+      return Array.from(new Uint8Array(buf), (b) => b.toString(16).padStart(2, "0")).join("").slice(0, 12);
+    }
+
+    function slugFromUrl(url) {
+      const parts = String(url || "").trim().replace(/\/+$/, "").split("/");
+      const at = parts.indexOf("projects");
+      return at >= 0 && parts[at + 1] ? parts[at + 1] : "";
+    }
+
+    function projectFields(project) {
+      return {
+        projectTitle: project.projectTitle || "",
+        showcaseUrl: project.showcaseUrl || "",
+        heroImageUrl: project.heroImageUrl || "",
+        authorName: project.authorName || "",
+        authorGithub: project.authorGithub || "",
+        projectCohort: project.cohort || ""
+      };
+    }
+
+    async function findPinForProject(pins, project, used) {
+      const slug = slugFromUrl(project.showcaseUrl) || String(project.project_slug || "").trim();
+      const author = await nameKey(project.authorName);
+      for (let i = 0; i < pins.length; i++) {
+        const pin = pins[i];
+        if (used.has(pin)) continue;
+        if (slug && slugFromUrl(pin.showcaseUrl) === slug) return pin;
+      }
+      for (let i = 0; i < pins.length; i++) {
+        const pin = pins[i];
+        if (used.has(pin)) continue;
+        if (author && pin.nameKey === author) return pin;
+        if (author && (await nameKey(pin.authorName)) === author) return pin;
+      }
+      return null;
+    }
+
+    async function attachProjectsToPins(pins, projects) {
+      const used = new Set();
+      const list = projects || [];
+      for (let i = 0; i < list.length; i++) {
+        const pin = await findPinForProject(pins, list[i], used);
+        if (!pin) continue;
+        used.add(pin);
+        Object.assign(pin, projectFields(list[i]));
+      }
+      return pins;
+    }
+
     function alumniHeadcount(pins) {
       return pins.reduce((n, a) => n + (Number(a.headcount) > 0 ? Number(a.headcount) : 1), 0);
     }
@@ -661,7 +718,8 @@
       return copies;
     }
 
-    const ALUMNI = spreadOverlappingPins(window.ALUMNI_MAP_DATA || []);
+    const RAW_PINS = (window.ALUMNI_MAP_DATA || []).map((p) => Object.assign({}, p));
+    let ALUMNI = spreadOverlappingPins(RAW_PINS);
     const mapRoot = document.getElementById("hero-map");
     const LAT_PAD = 7;
 
@@ -808,7 +866,9 @@
       });
     }
 
-    ALUMNI.forEach((a) => {
+    function addAlumniMarkers() {
+      markers.splice(0).forEach((m) => map.removeLayer(m));
+      ALUMNI.forEach((a) => {
       const hasProject = Boolean(a.showcaseUrl);
       const icon = L.divIcon({
         className: "alumni-leaflet-icon" + (hasProject ? " is-project" : ""),
@@ -840,7 +900,9 @@
       marker.on("add", () => wireProjectOpener(marker, a));
       wireProjectOpener(marker, a);
       markers.push(marker);
-    });
+      });
+    }
+    addAlumniMarkers();
 
     L.DomEvent.on(map.getContainer(), "click", (ev) => {
       const opener = ev.target && ev.target.closest && ev.target.closest("[data-project-open]");
@@ -885,9 +947,22 @@
     requestAnimationFrame(() => requestAnimationFrame(applyAlumniCrop));
     window.addEventListener("resize", applyAlumniCrop);
 
-    const projectCount = ALUMNI.filter((a) => a.showcaseUrl).length;
-    document.getElementById("map-sub").textContent =
-      `${alumniHeadcount(ALUMNI)} alumni · ${projectCount} published project${projectCount === 1 ? "" : "s"}. Lime flags with an eye open the capstone.`;
+    function updateMapSub() {
+      const projectCount = ALUMNI.filter((a) => a.showcaseUrl).length;
+      document.getElementById("map-sub").textContent =
+        `${alumniHeadcount(ALUMNI)} alumni · ${projectCount} published project${projectCount === 1 ? "" : "s"}. Lime flags with an eye open the capstone.`;
+    }
+    updateMapSub();
+
+    async function attachLiveProjects() {
+      const res = await fetch("projects.json", { cache: "no-store" });
+      const data = await res.json();
+      await attachProjectsToPins(RAW_PINS, data.projects || []);
+      ALUMNI = spreadOverlappingPins(RAW_PINS);
+      addAlumniMarkers();
+      updateMapSub();
+      applyAlumniCrop();
+    }
 
     const legend = document.getElementById("legend");
     const keys = [];
@@ -1086,6 +1161,7 @@
       });
     }
 
+    attachLiveProjects().catch((err) => console.error(err));
     initReviews().catch((err) => console.error(err));
     initCapstones().catch((err) => console.error(err));
     initSyllabus().catch((err) => console.error(err));

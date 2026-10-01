@@ -52,3 +52,5 @@ Students must:
 2. **Add a unique `projects/<slug>/` folder** (e.g. `projects/jan26-onboarding-crew-jane-doe/`) with the showcase page and assets.
 3. **Append a valid JSON object to `projects.json`** so the project appears on the Wall of Fame.
 4. **Commit & push to `main`** to submit the project.
+
+The Course Page map reads `projects.json` on load and lights the matching alumni pin (same `authorName` as the roster). You do not edit the map yourself.
